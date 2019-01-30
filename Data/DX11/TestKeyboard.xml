@@ -1,0 +1,17 @@
+<xml>
+  <include>Setup.xml</include>
+  
+  <extension source="?EXTENSIONS?/MELua.dll">
+  	<startup>game_inputs.lua</startup>
+  </extension>
+  
+  <include>ext_Dae.xml</include>
+  <include>ext_Ase.xml</include>
+  
+  <extension source="?EXTENSIONS?/MEKeyboard.dll"/>
+  
+  <include>ext_MEEditor.xml</include>
+  <include>Controls.xml</include>
+  
+  <StartScene/>
+</xml>

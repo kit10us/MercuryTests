@@ -1,0 +1,29 @@
+<?xml profile="1.0" encoding="iso-8859-1"?>
+<xml>
+  <pixelshader name="color3d">
+    <source>color2d.hlsl</source>
+    <entry>ps_main</entry>
+    <profile>ps_1_1</profile>
+	<constants>
+	  <matrix name="world" count="1"/>
+	  <matrix name="view" count="1"/>
+	  <matrix name="projection" count="1"/>
+	</constants>
+  </pixelshader>
+  <vertexshader name="color3d">
+    <source>color2d.hlsl</source>
+    <entry>vs_main</entry>
+    <profile>vs_1_1</profile>
+	<constants>
+	  <matrix name="world" count="1"/>
+	  <matrix name="view" count="1"/>
+	  <matrix name="projection" count="1"/>
+	</constants>
+	<vertexformat>
+      <slot>
+        <element name="Position" type="Float3"/>
+  	    <element name="Diffuse" type="Float4"/>
+      </slot>
+	</vertexformat>
+  </vertexshader>
+</xml>

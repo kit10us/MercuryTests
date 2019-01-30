@@ -1,0 +1,9 @@
+<xml>
+  <shape>
+    <type>sphere</type>
+    <effect name="cube" source="EffectTextured.effect"/>
+    <segments>24</segments>
+    <radius>1</radius>
+    <diffuse>255,0,0,255</diffuse>
+  </shape>
+</xml>

@@ -1,0 +1,56 @@
+<xml>
+<pathing>
+
+<axis name="camera1">
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+  <rotation>0</rotation>
+</axis>
+
+<axis name="camera2">
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+  <rotation>3.14159265</rotation>
+</axis>
+
+<axis name="camera3">
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+  <rotation>6.28318531</rotation>
+</axis>
+
+<axis name="identity">
+  <x>0</x>
+  <y>0</y>
+  <z>0</z>
+  <w>1</w>
+</axis>
+
+<position name="centerstage">
+<x>0</x>
+<y>0</y>
+<z>0</z>
+</position>
+
+<position name="abovecenter">
+<x>0</x>
+<y>10</y>
+<z>0</z>
+</position>
+
+
+<path name="camera" duration="5">
+  <modifier type="parallel">
+    <modifier type="split" timeSpentOnA="0.5">
+      <modifier type="rotateAbout" position="abovecenter" distance="20" axisFrom="camera1" axisTo="camera2"/>
+      <modifier type="rotateAbout" position="abovecenter" distance="20" axisFrom="camera2" axisTo="camera3"/>
+    </modifier>
+    <modifier type="lookAt" position="centerstage"/>
+  </modifier>
+</path>
+
+</pathing>
+</xml>

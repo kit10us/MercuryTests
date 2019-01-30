@@ -1,0 +1,7 @@
+<xml>
+<include>setup.xml</include>
+<extension source="?EXTENSIONS?/MELua.dll"/>
+
+<include>meeditor.xml</include>
+<include>inputs.xml</include>
+</xml>

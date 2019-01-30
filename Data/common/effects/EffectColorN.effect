@@ -1,0 +1,20 @@
+<?xml profile="1.0" encoding="iso-8859-1"?>
+<xml>
+  <effect name="color_3d">
+    <pixelshader name="color_3d">
+      <source>color3dN.shader</source>
+      <entry>ps_main</entry>
+      <profile>ps_1_1</profile>
+	</pixelshader>
+    <vertexshader name="color_3d">
+      <source>color3dN.shader</source>
+	  <entry>vs_main</entry>
+      <profile>vs_1_1</profile>
+      <vd>
+	    <element name="Position" type="Float3"/>
+		<element name="Normal" type="Float3"/>
+		<element name="Diffuse" type="D3DCOLOR"/>
+	  </vd>
+    </vertexshader>
+  </effect>
+</xml>

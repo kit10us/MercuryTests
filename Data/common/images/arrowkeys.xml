@@ -1,0 +1,26 @@
+<xml>
+  <animation name="ArrowUp_NotPressed" playback="noloop">
+    <frame source="arrowkeys/0000.png"/>
+  </animation>
+  <animation name="ArrowLeft_NotPressed" playback="noloop">
+    <frame source="arrowkeys/0001.png"/>
+  </animation>
+  <animation name="ArrowDown_NotPressed" playback="noloop">
+    <frame source="arrowkeys/0002.png"/>
+  </animation>
+  <animation name="ArrowRight_NotPressed" playback="noloop">
+    <frame source="arrowkeys/0003.png"/>
+  </animation>
+  <animation name="ArrowUp_Pressed">
+    <frame source="arrowkeys/0004.png"/ playback="noloop">
+  </animation>
+  <animation name="ArrowLeft_Pressed">
+    <frame source="arrowkeys/0005.png"/ playback="noloop">
+  </animation>
+  <animation name="ArrowDown_Pressed">
+    <frame source="arrowkeys/0006.png"/ playback="noloop">
+  </animation>
+  <animation name="ArrowRight_Pressed">
+    <frame source="arrowkeys/0007.png"/ playback="noloop">
+  </animation>
+</xml>

@@ -1,0 +1,12 @@
+<xml>
+<extension source="?EXTENSIONS?/MEDAELoader.dll">
+<!--
+	<color name="color" source="EffectColor.effect"/>
+	<texture name="texture" source="EffectTextured.effect"/>
+-->
+	<colorps name="color_ambient" source="ColorInstanced_ambient.xml"/>
+	<colorvs name="color_ambient" source="ColorInstanced_ambient.xml"/>
+	<textureps name="texture_ambient" source="ColorInstanced_ambient.xml"/>
+	<texturevs name="texture_ambient" source="ColorInstanced_ambient.xml"/>
+</extension>
+</xml>

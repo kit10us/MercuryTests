@@ -1,0 +1,9 @@
+<?xml profile="1.0" encoding="iso-8859-1"?>
+<xml>
+  <effect>
+    <pixelshader source="texture2d_trans.xml"/>
+    <vertexshader source="texture2d_trans.xml"/>
+    <texture stage="0" source="heart01.png"/>
+    <texture stage="1" source="heart02.png"/>
+  </effect>
+</xml>

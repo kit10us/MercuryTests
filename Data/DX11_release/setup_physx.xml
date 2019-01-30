@@ -1,0 +1,34 @@
+<xml>
+<title>DX11 Test (Release)</title>
+<renderer source="../../extensions/Release/MercuryEngineDX11.dll">
+	<display fullscreen="false" x="10" y="10" width="1920" height="1080"/>
+</renderer>
+<failuresAsCritial>true</failuresAsCritial>
+<logfile>log.txt</logfile>
+<assets>../test_dataDX11_common/shaders/</assets>
+<assets>../test_data/</assets>
+<assets>../test_data/effects/</assets>
+<assets>../test_data/images/</assets>
+<assets>../test_data/models/</assets>
+<assets>../test_data/scripts/</assets>
+
+<extension source="../../extensions/Release/MELua.dll">
+	<startup>game_physx.lua</startup>
+</extension>
+
+<include>dae.xml</include>
+
+<extension source="../../extensions/Release/ASELoader.dll">
+	<textureps name="textured_ambient" source="textured_ambient.xml"/>
+	<texturevs name="textured_ambient" source="textured_ambient.xml"/>
+</extension>
+
+<extension source="../../extensions/Release/MEPhysx.dll"/>
+<extension source="../../extensions/Release/MELuaPhysXExt.dll"/>
+<extension source="../../extensions/Release/DXIKeyboard.dll"/>
+<extension source="../../extensions/Release/DXIMouse.dll"/>
+<extension source="../../extensions/Release/DXIGamepad.dll"/>
+
+<include>meeditor.xml</include>
+<include>inputs.xml</include>
+</xml>

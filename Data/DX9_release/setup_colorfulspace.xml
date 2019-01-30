@@ -1,0 +1,24 @@
+<xml>
+<include>setup_base.xml</include>
+
+<extension source="../../extensions/Release/MELua.dll">
+	<startup>colorfulspace.lua</startup>
+</extension>
+
+<extension source="../../extensions/Release/DAELoader.dll">
+	<color name="color" source="EffectColor.effect"/>
+	<texture name="texture" source="EffectTextured.effect"/>
+</extension>
+
+<extension source="../../extensions/Release/ASELoader.dll">
+	<textureps name="textured3d" source="texture3d.xml"/>
+	<texturevs name="textured3d" source="texture3d.xml"/>
+</extension>
+
+<extension source="../../extensions/Release/DXIKeyboard.dll"/>
+<extension source="../../extensions/Release/DXIMouse.dll"/>
+<extension source="../../extensions/Release/DXIGamepad.dll"/>
+
+<include>meeditor.xml</include>
+<include>inputs.xml</include>
+</xml>

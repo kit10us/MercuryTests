@@ -1,0 +1,7 @@
+<?xml profile="1.0" encoding="iso-8859-1"?>
+<xml>
+  <effect>
+    <pixelshader name="ColorAnimInst3d" source="ColorAnimInst3d.xml"/>
+    <vertexshader name="ColorAnimInst3d" source="ColorAnimInst3d.xml"/>
+  </effect>
+</xml>

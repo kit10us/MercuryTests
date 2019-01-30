@@ -1,0 +1,22 @@
+<xml>
+<define name="RENDERER">DX9</define>
+<define name="EXTENSIONS">../../extensions/?TARGET?</define>
+
+<assets>models/</assets>
+<assets>media/</assets>
+<assets>media/shaders/</assets>
+<assets>../test_data/</assets>
+<assets>../test_data/media/</assets>
+<assets>../test_data/scripts/</assets>
+<assets>../test_data/effects/</assets>
+
+<title>?RENDERER? Test (?RENDERER?)</title>
+
+<renderer source="?EXTENSIONS?/MercuryEngine?RENDERER?.dll">
+	<display fullscreen="false" x="10" y="10" width="800" height="600"/>
+</renderer>
+<failuresAsCritical>true</failuresAsCritical>
+<logfile>log.txt</logfile>
+<extension source="?EXTENSIONS?/MEEditor.dll"/>
+
+</xml>

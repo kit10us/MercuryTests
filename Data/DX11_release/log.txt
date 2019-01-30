@@ -1,0 +1,121 @@
+[Game::Initialize] Initializing[Extension::Load] Loading extenion "../../extensions/Release/MercuryEngineDX11.dll"...[Debug] Log file: log.txt
+[Game::Initialize] name:    C:\dev\ws\MercuryTests\02tests_feature\02Test06 - Geo Instancing\..\..\..\output\v140_Release\02Test06 - Geo Instancing\02Test06 - Geo Instancing.exe
+[Game::Initialize] program: C:\dev\ws\MercuryTests\02tests_feature\output\v140_Release\02Test06 - Geo Instancing\02Test06 - Geo Instancing.exe
+[Game::Initialize] path:    C:\dev\ws\MercuryTests\test_dataDX11_Release/
+[Game::Initialize] time:    Mon Sep 10 11:03:58 2018
+
+[Game::Initialize] Loading setup "setup_models.xml"...
+[Game::Initialize] Loading setup "setup_base.xml"...
+[Game::Initialize] Loading setup "dae.xml"...
+[Extension::Load] Loading extenion "../../extensions/Release/DAELoader.dll"...
+[ResourceManager::Add] PixelShader manager: adding "color_ambient" (../test_dataDX11_common/shaders/color_ambient.xml).
+[ResourceManager::Add] VertexShader manager: adding "color_ambient" (../test_dataDX11_common/shaders/color_ambient.xml).
+[ResourceManager::Add] PixelShader manager: adding "texture_ambient" (../test_dataDX11_common/shaders/texture_ambient.xml).
+[ResourceManager::Add] VertexShader manager: adding "texture_ambient" (../test_dataDX11_common/shaders/texture_ambient.xml).
+[Extension::Load] Loading extenion "../../extensions/Release/ASELoader.dll"...
+[Game::Initialize] Loading setup "meeditor.xml"...
+[Extension::Load] Loading extenion "../../extensions/Release/MEEditor.dll"...
+[Game::Initialize] Loading setup "inputs.xml"...
+[Game::Initialize] Add input actions (failures = 1)
+[Game::Initialize] GameComponent summary...
+[Game::Initialize] SceneManager
+[Game::Initialize] ActionFactory
+[Game::Initialize] ActionsGameComponent
+[Game::Initialize] OS Startup Begin
+[Game::Initialize] OS Startup Done
+[Game::Initialize] Game Component's OnBeforeStartup Begin
+[Game::Initialize] OnBeforeStart "SceneManager" Begin
+[Game::Initialize] OnBeforeStart "SceneManager" Done
+[Game::Initialize] OnBeforeStart "ActionFactory" Begin
+[Game::Initialize] OnBeforeStart "ActionFactory" Done
+[Game::Initialize] OnBeforeStart "ActionsGameComponent" Begin
+[Game::Initialize] OnBeforeStart "ActionsGameComponent" Done
+[Game::Initialize] Game Component's OnBeforeStartup Done
+[Game::Initialize] Game's Startup Begin
+[Game::Initialize] Game's Startup Done
+[Game::Initialize] OnAfterStartup Begin
+[Game::Initialize] OnAfterStartup "SceneManager" Begin
+[Game::Initialize] OnAfterStartup "SceneManager" Done
+[Game::Initialize] OnAfterStartup "ActionFactory" Begin
+[Game::Initialize] OnAfterStartup "ActionFactory" Done
+[Game::Initialize] OnAfterStartup "ActionsGameComponent" Begin
+[Game::Initialize] OnAfterStartup "ActionsGameComponent" Done
+[Game::Initialize] OnAfterStartup Done
+[Game::Initialize] total startup time: 750.430481s
+[Game::Initialize] Creating Main Scene
+[Scene::ChangeScene] Starting scene "main" Begin
+[Scene::OnBeforeStart] Component "ObjectAllocatorComponent" OnBeforeStart Begin
+[Scene::OnBeforeStart] Component "ObjectAllocatorComponent" OnBeforeStart Done
+[Scene::ChangeScene] OnStart Begin
+[ResourceManager::Add] Effect manager: adding "ColorInstanced_ambient" (../test_data/effects/ColorInstanced_ambient.effect).
+[ResourceManager::Add] PixelShader manager: adding "colorI_ambient" (../test_dataDX11_common/shaders/ColorInstanced_ambient.xml).
+[ResourceManager::Add] VertexShader manager: adding "colorI_ambient" (../test_dataDX11_common/shaders/ColorInstanced_ambient.xml).
+[ResourceManager::Add] Effect manager: adding "font2" (../test_data/effects/font2.effect).
+[ResourceManager::Add] PixelShader manager: adding "texture2D" (../test_dataDX11_common/shaders/texture2d_trans.xml).
+[ResourceManager::Add] VertexShader manager: adding "texture2D" (../test_dataDX11_common/shaders/texture2d_trans.xml).
+[ResourceManager::Add] Texture manager: adding "font2" (../test_data/images/font2.png).
+[Scene::ChangeScene] OnStart End
+[Scene::OnAfterStart] Component "ObjectAllocatorComponent" OnAfterStart Begin
+[Scene::OnAfterStart] Component "ObjectAllocatorComponent" OnAfterStart Done
+[Scene::OnAfterStart] Component "CanvasComponent" OnAfterStart Begin
+[Scene::OnAfterStart] Component "CanvasComponent" OnAfterStart Done
+[Scene::ChangeScene] Start scene "main" Done
+[Game::Initialize] Main Scene created
+[Game::Private_Shutdown] Shutting down:
+[Game::Private_Shutdown] OnDetach
+[Game::Private_Shutdown] Detaching SceneManager
+[Game::Private_Shutdown] Detaching ActionFactory
+[Game::Private_Shutdown] Detaching ActionsGameComponent
+[Game::Private_Shutdown] OnDetachDone
+[Game::Private_Shutdown] time: Mon Sep 10 11:16:34 2018
+
+[Game::Private_Shutdown] frames: 262, total delta: 17.863985s,  average fps:0.055979
+[Game::Initialize] Initializing[Extension::Load] Loading extenion "../../extensions/Release/MercuryEngineDX11.dll"...[Debug] Log file: log.txt
+[Game::Initialize] name:    C:\dev\ws\MercuryTests\01tests_basics\01Test01-2DQuad\..\..\..\output\v140_Release\01Test01-2DQuad\01Test01-2DQuad.exe
+[Game::Initialize] program: C:\dev\ws\MercuryTests\01tests_basics\output\v140_Release\01Test01-2DQuad\01Test01-2DQuad.exe
+[Game::Initialize] path:    C:\dev\ws\MercuryTests\test_dataDX11_Release/
+[Game::Initialize] time:    Mon Oct  8 13:40:48 2018
+
+[Game::Initialize] Loading setup "setup.xml"...
+[Game::Initialize] Loading setup "setup_base.xml"...
+[Game::Initialize] GameComponent summary...
+[Game::Initialize] SceneManager
+[Game::Initialize] ActionFactory
+[Game::Initialize] OS Startup Begin
+[Game::Initialize] OS Startup Done
+[Game::Initialize] Game Component's OnBeforeStartup Begin
+[Game::Initialize] OnBeforeStart "SceneManager" Begin
+[Game::Initialize] OnBeforeStart "SceneManager" Done
+[Game::Initialize] OnBeforeStart "ActionFactory" Begin
+[Game::Initialize] OnBeforeStart "ActionFactory" Done
+[Game::Initialize] Game Component's OnBeforeStartup Done
+[Game::Initialize] Game's Startup Begin
+[Game::Initialize] Game's Startup Done
+[Game::Initialize] OnAfterStartup Begin
+[Game::Initialize] OnAfterStartup "SceneManager" Begin
+[Game::Initialize] OnAfterStartup "SceneManager" Done
+[Game::Initialize] OnAfterStartup "ActionFactory" Begin
+[Game::Initialize] OnAfterStartup "ActionFactory" Done
+[Game::Initialize] OnAfterStartup Done
+[Game::Initialize] total startup time: 0.664408s
+[Game::Initialize] Creating Main Scene
+[Scene::ChangeScene] Starting scene "main" Begin
+[Scene::OnBeforeStart] Component "ObjectAllocatorComponent" OnBeforeStart Begin
+[Scene::OnBeforeStart] Component "ObjectAllocatorComponent" OnBeforeStart Done
+[Scene::ChangeScene] OnStart Begin
+[ResourceManager::Add] Effect manager: adding "color2d" (../test_data/effects/EffectColor2D.effect).
+[ResourceManager::Add] PixelShader manager: adding "color2d" (../test_dataDX11_common/shaders/color2d.xml).
+[ResourceManager::Add] VertexShader manager: adding "color2d" (../test_dataDX11_common/shaders/color2d.xml).
+[Scene::ChangeScene] OnStart End
+[Scene::OnAfterStart] Component "ObjectAllocatorComponent" OnAfterStart Begin
+[Scene::OnAfterStart] Component "ObjectAllocatorComponent" OnAfterStart Done
+[Scene::ChangeScene] Start scene "main" Done
+[Game::Initialize] Main Scene created
+[Game::Private_Shutdown] Shutting down:
+[Game::Private_Shutdown] OnDetach
+[Game::Private_Shutdown] Detaching SceneManager
+[Game::Private_Shutdown] Detaching ActionFactory
+[Game::Private_Shutdown] OnDetachDone
+[Game::Private_Shutdown] time: Mon Oct  8 13:41:32 2018
+
+[Game::Private_Shutdown] frames: 37733, total delta: 1.139076s,  average fps:0.877905

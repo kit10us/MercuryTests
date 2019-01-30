@@ -1,0 +1,10 @@
+<xml>
+
+<include>setup.xml</include>
+
+<include>ext_Dae.xml</include>
+<include>ext_Ase.xml</include>
+<include>ext_MEEditor.xml</include>
+<include>Controls.xml</include>
+
+</xml>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+   <asset>
+      <contributor>
+         <authoring_tool>Google SketchUp 7.0.8657</authoring_tool>
+      </contributor>
+      <created>2009-02-26T22:31:40Z</created>
+      <modified>2009-02-26T22:31:40Z</modified>
+      <unit name="feet" meter="0.3048"/>
+      <up_axis>Z_UP</up_axis>
+   </asset>
+   <library_images>
+      <image id="material_0_1_0-image" name="material_0_1_0-image">
+         <init_from>../images/texture0.jpg</init_from>
+      </image>
+      <image id="material_1_2_0-image" name="material_1_2_0-image">
+         <init_from>../images/texture1.jpg</init_from>
+      </image>
+      <image id="material_2_3_0-image" name="material_2_3_0-image">
+         <init_from>../images/texture2.jpg</init_from>
+      </image>
+      <image id="material_3_4_0-image" name="material_3_4_0-image">
+         <init_from>../images/texture3.jpg</init_from>
+      </image>
+   </library_images>
+   <library_materials>
+      <material id="material_0_1_0ID" name="material_0_1_0">
+         <instance_effect url="#material_0_1_0-effect"/>
+      </material>
+      <material id="material_1_2_0ID" name="material_1_2_0">
+         <instance_effect url="#material_1_2_0-effect"/>
+      </material>
+      <material id="material_2_3_0ID" name="material_2_3_0">
+         <instance_effect url="#material_2_3_0-effect"/>
+      </material>
+      <material id="material_3_4_0ID" name="material_3_4_0">
+         <instance_effect url="#material_3_4_0-effect"/>
+      </material>
+   </library_materials>
+   <library_effects>
+      <effect id="material_0_1_0-effect" name="material_0_1_0-effect">
+         <profile_COMMON>
+            <newparam sid="material_0_1_0-image-surface">
+               <surface type="2D">
+                  <init_from>material_0_1_0-image</init_from>
+               </surface>
+            </newparam>
+            <newparam sid="material_0_1_0-image-sampler">
+               <sampler2D>
+                  <source>material_0_1_0-image-surface</source>
+               </sampler2D>
+            </newparam>
+            <technique sid="COMMON">
+               <lambert>
+                  <emission>
+                     <color>0.000000 0.000000 0.000000 1</color>
+                  </emission>
+                  <ambient>
+                     <color>0.000000 0.000000 0.000000 1</color>
+                  </ambient>
+                  <diffuse>
+                     <texture texture="material_0_1_0-image-sampler" texcoord="UVSET0"/>
+                  </diffuse>
+                  <transparent>
+                     <color>1 1 1 1</color>
+                  </transparent>
+                  <transparency>
+                     <float>0.000000</float>
+                  </transparency>
+               </lambert>
+            </technique>
+            <extra>
+               <technique profile="GOOGLEEARTH">
+                  <double_sided>1</double_sided>
+               </technique>
+            </extra>
+         </profile_COMMON>
+      </effect>
+      <effect id="material_1_2_0-effect" name="material_1_2_0-effect">
+         <profile_COMMON>
+            <newparam sid="material_1_2_0-image-surface">
+               <surface type="2D">
+                  <init_from>material_1_2_0-image</init_from>
+               </surface>
+            </newparam>
+            <newparam sid="material_1_2_0-image-sampler">
+               <sampler2D>
+                  <source>material_1_2_0-image-surface</source>
+               </sampler2D>
+            </newparam>
+            <technique sid="COMMON">
+               <lambert>
+                  <emission>
+                     <color>0.000000 0.000000 0.000000 1</color>
+                  </emission>
+                  <ambient>
+                     <color>0.000000 0.000000 0.000000 1</color>
+                  </ambient>
+                  <diffuse>
+                     <texture texture="material_1_2_0-image-sampler" texcoord="UVSET0"/>
+                  </diffuse>
+                  <transparent>
+                     <color>1 1 1 1</color>
+                  </transparent>
+                  <transparency>
+                     <float>0.000000</float>
+                  </transparency>
+               </lambert>
+            </technique>
+            <extra>
+               <technique profile="GOOGLEEARTH">
+                  <double_sided>1</double_sided>
+               </technique>
+            </extra>
+         </profile_COMMON>
+      </effect>
+      <effect id="material_2_3_0-effect" name="material_2_3_0-effect">
+         <profile_COMMON>
+            <newparam sid="material_2_3_0-image-surface">
+               <surface type="2D">
+                  <init_from>material_2_3_0-image</init_from>
+               </surface>
+            </newparam>
+            <newparam sid="material_2_3_0-image-sampler">
+               <sampler2D>
+                  <source>material_2_3_0-image-surface</source>
+               </sampler2D>
+            </newparam>
+            <technique sid="COMMON">
+               <lambert>
+                  <emission>
+                     <color>0.000000 0.000000 0.000000 1</color>
+                  </emission>
+                  <ambient>
+                     <color>0.000000 0.000000 0.000000 1</color>
+                  </ambient>
+                  <diffuse>
+                     <texture texture="material_2_3_0-image-sampler" texcoord="UVSET0"/>
+                  </diffuse>
+                  <transparent>
+                     <color>1 1 1 1</color>
+                  </transparent>
+                  <transparency>
+                     <float>0.000000</float>
+                  </transparency>
+               </lambert>
+            </technique>
+            <extra>
+               <technique profile="GOOGLEEARTH">
+                  <double_sided>1</double_sided>
+               </technique>
+            </extra>
+         </profile_COMMON>
+      </effect>
+      <effect id="material_3_4_0-effect" name="material_3_4_0-effect">
+         <profile_COMMON>
+            <newparam sid="material_3_4_0-image-surface">
+               <surface type="2D">
+                  <init_from>material_3_4_0-image</init_from>
+               </surface>
+            </newparam>
+            <newparam sid="material_3_4_0-image-sampler">
+               <sampler2D>
+                  <source>material_3_4_0-image-surface</source>
+               </sampler2D>
+            </newparam>
+            <technique sid="COMMON">
+               <lambert>
+                  <emission>
+                     <color>0.000000 0.000000 0.000000 1</color>
+                  </emission>
+                  <ambient>
+                     <color>0.000000 0.000000 0.000000 1</color>
+                  </ambient>
+                  <diffuse>
+                     <texture texture="material_3_4_0-image-sampler" texcoord="UVSET0"/>
+                  </diffuse>
+                  <transparent>
+                     <color>1 1 1 1</color>
+                  </transparent>
+                  <transparency>
+                     <float>0.000000</float>
+                  </transparency>
+               </lambert>
+            </technique>
+            <extra>
+               <technique profile="GOOGLEEARTH">
+                  <double_sided>1</double_sided>
+               </technique>
+            </extra>
+         </profile_COMMON>
+      </effect>
+   </library_effects>
+   <library_geometries>
+      <geometry id="mesh1-geometry" name="mesh1-geometry">
+         <mesh>
+            <source id="mesh1-geometry-position">
+               <float_array id="mesh1-geometry-position-array" count="168">2.839000 0.123000 0.000000 0.025000 0.024000 -0.000000 0.025000 0.123000 -0.000000 2.839000 0.024000 0.000000 0.025000 0.123000 1.662000 2.839000 0.136115 0.005005 2.839000 0.024000 1.662000 0.025000 0.024000 1.662000 0.025000 0.138193 1.651770 0.025000 0.136115 0.005005 2.839000 0.123000 1.662000 2.839000 0.148809 0.010998 2.839000 0.138193 1.651770 0.025000 0.148809 0.010998 0.025000 0.152588 1.640445 2.839000 0.161007 0.017944 2.839000 0.152588 1.640445 0.025000 0.161007 0.017944 0.025000 0.166106 1.628087 2.839000 0.172639 0.025802 2.839000 0.166106 1.628087 0.025000 0.172639 0.025802 2.839000 0.178674 1.614764 0.025000 0.178674 1.614764 2.839000 0.183637 0.034526 0.025000 0.183637 0.034526 2.839000 0.190223 1.600548 0.025000 0.190223 1.600548 2.839000 0.193935 0.044065 0.025000 0.193935 0.044065 2.839000 0.200689 1.585517 0.025000 0.200689 1.585517 0.025000 0.203474 0.054363 2.839000 0.203474 0.054363 2.839000 0.210016 1.569753 0.025000 0.210016 1.569753 0.025000 0.212198 0.065361 2.839000 0.212198 0.065361 2.839000 0.218152 1.553344 0.025000 0.218152 1.553344 0.025000 0.220056 0.076993 2.839000 0.220056 0.076993 2.839000 0.225052 1.536377 0.025000 0.225052 1.536377 0.025000 0.227002 0.089191 2.839000 0.227002 0.089191 2.839000 0.230680 1.518948 0.025000 0.230680 1.518948 0.025000 0.232995 0.101885 2.839000 0.232995 0.101885 2.839000 0.235004 1.501149 0.025000 0.235004 1.501149 0.025000 0.238000 0.115000 2.839000 0.238000 0.115000 2.839000 0.238000 1.483080 0.025000 0.238000 1.483080 </float_array>
+               <technique_common>
+                  <accessor source="#mesh1-geometry-position-array" count="56" stride="3">
+                     <param name="X" type="float"/>
+                     <param name="Y" type="float"/>
+                     <param name="Z" type="float"/>
+                  </accessor>
+               </technique_common>
+            </source>
+            <source id="mesh1-geometry-normal">
+               <float_array id="mesh1-geometry-normal-array" count="96">0.000000 0.000000 -1.000000 -1.000000 0.000000 0.000000 0.000000 0.356561 -0.934272 0.000000 0.392033 -0.919951 1.000000 0.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 0.000000 1.000000 -0.000000 0.558526 0.829487 -0.000000 0.588822 0.808262 0.000000 0.461204 -0.887294 -0.000000 0.646958 0.762526 0.000000 0.527677 -0.849445 -0.000000 0.701554 0.712617 0.000000 0.591062 -0.806626 -0.000000 0.752311 0.658808 0.000000 0.650989 -0.759087 -0.000000 0.798952 0.601395 0.000000 0.707107 -0.707107 -0.000000 0.841221 0.540692 0.000000 0.759087 -0.650989 -0.000000 0.878887 0.477030 0.000000 0.806626 -0.591062 -0.000000 0.911745 0.410758 0.000000 0.849445 -0.527677 -0.000000 0.939613 0.342238 0.000000 0.887294 -0.461204 -0.000000 0.962341 0.271846 0.000000 0.919951 -0.392033 -0.000000 0.979803 0.199966 0.000000 0.934272 -0.356561 -0.000000 0.986528 0.163591 -0.000000 1.000000 -0.000000 </float_array>
+               <technique_common>
+                  <accessor source="#mesh1-geometry-normal-array" count="32" stride="3">
+                     <param name="X" type="float"/>
+                     <param name="Y" type="float"/>
+                     <param name="Z" type="float"/>
+                  </accessor>
+               </technique_common>
+            </source>
+            <source id="mesh1-geometry-uv">
+               <float_array id="mesh1-geometry-uv-array" count="312">-0.990234 0.074124 -0.008720 0.014463 -0.008720 0.074124 -0.990234 0.014463 -0.088691 0.000000 -0.454542 0.954076 -0.454542 -0.000000 0.000000 0.015066 0.004897 1.710875 0.000000 1.710875 0.265638 -0.000000 0.051832 0.954076 0.051832 -0.000000 0.990234 0.000000 0.008720 1.002398 0.008720 -0.000000 -0.088691 0.954076 -0.510686 0.948203 0.004897 0.015066 0.265638 0.954076 0.293961 0.002873 0.990234 1.002398 0.990234 0.014463 0.008720 0.074124 0.008720 0.014463 0.076680 1.710875 0.070290 0.015066 0.076680 0.015066 -0.503007 0.002873 0.009795 1.710875 0.298449 0.948203 0.990234 0.074124 0.070290 1.710875 -0.549917 0.006314 0.009795 0.015066 0.321376 0.006314 0.070290 1.710875 0.063900 0.015066 0.070290 0.015066 -0.563883 0.941702 0.014692 1.710875 0.329537 0.941702 0.063900 1.710875 -0.594997 0.010301 0.014692 0.015066 0.347720 0.010301 0.063900 1.710875 0.057510 0.015066 0.063900 0.015066 -0.613840 0.934608 0.019590 1.710875 0.358732 0.934608 0.057510 1.710875 -0.637983 0.014812 0.019590 0.015066 0.372842 0.014812 0.051120 1.710875 0.057510 0.015066 0.057510 1.710875 -0.660284 0.926960 0.019590 0.015066 0.024487 1.710875 0.019590 1.710875 0.385875 0.926960 0.051120 0.015066 -0.678623 0.019820 0.024487 0.015066 0.396592 0.019820 0.044730 1.710875 0.051120 0.015066 0.051120 1.710875 -0.702962 0.918799 0.024487 0.015066 0.029384 1.710875 0.024487 1.710875 0.410816 0.918799 0.044730 0.015066 -0.716680 0.025296 0.029384 0.015066 0.418833 0.025296 0.038340 1.710875 0.044730 0.015066 0.044730 1.710875 -0.741640 0.910170 0.034282 0.015066 0.433420 0.910170 0.038340 0.015066 -0.751931 0.031207 0.034282 1.710875 0.439434 0.031207 0.031950 1.710875 0.038340 0.015066 0.038340 1.710875 -0.776106 0.901121 0.039179 0.015066 0.034282 1.710875 0.034282 0.015066 0.453562 0.901121 0.031950 0.015066 -0.784171 0.037520 0.039179 1.710875 0.458275 0.037520 0.025560 1.710875 0.031950 0.015066 0.031950 1.710875 -0.806172 0.891701 0.044077 0.015066 0.039179 1.710875 0.039179 0.015066 0.471133 0.891701 0.025560 0.015066 -0.813209 0.044198 0.044077 1.710875 0.475245 0.044198 0.019170 1.710875 0.025560 0.015066 0.025560 1.710875 -0.831673 0.881962 0.048974 0.015066 0.044077 1.710875 0.044077 0.015066 0.486036 0.881962 0.019170 0.015066 -0.838877 0.051201 0.048974 1.710875 0.490246 0.051201 0.012780 1.710875 0.019170 0.015066 0.019170 1.710875 -0.852470 0.871956 0.053872 0.015066 0.498189 0.871956 0.012780 0.015066 -0.861024 0.058487 0.053872 1.710875 0.503189 0.058487 0.006390 1.710875 0.012780 0.015066 0.012780 1.710875 -0.868448 0.861739 0.058769 0.015066 0.507527 0.861739 0.006390 0.015066 -0.879521 0.066016 0.058769 1.710875 0.513998 0.066016 0.000000 1.710875 0.006390 0.015066 0.006390 1.710875 -0.879521 0.851366 -0.008720 0.893753 -0.990234 0.069303 -0.008720 0.069303 0.513998 0.851366 -0.000000 0.015066 -0.990234 0.893753 </float_array>
+               <technique_common>
+                  <accessor source="#mesh1-geometry-uv-array" count="156" stride="2">
+                     <param name="S" type="float"/>
+                     <param name="T" type="float"/>
+                  </accessor>
+               </technique_common>
+            </source>
+            <vertices id="mesh1-geometry-vertex">
+               <input semantic="POSITION" source="#mesh1-geometry-position"/>
+            </vertices>
+            <triangles material="material_0_1_0" count="54">
+               <input semantic="VERTEX" source="#mesh1-geometry-vertex" offset="0"/>
+               <input semantic="NORMAL" source="#mesh1-geometry-normal" offset="1"/>
+               <input semantic="TEXCOORD" source="#mesh1-geometry-uv" offset="2" set="0"/>
+               <p>0 0 0 1 0 1 2 0 2 1 0 1 0 0 0 3 0 3 2 2 7 5 3 8 0 2 9 5 3 8 2 2 7 9 3 18 6 6 22 4 6 23 7 6 24 10 7 25 8 8 26 4 7 27 9 3 18 11 9 29 5 3 8 4 6 23 6 6 22 10 6 31 8 8 26 10 7 25 12 8 32 11 9 29 9 3 18 13 9 34 12 8 36 14 10 37 8 8 38 13 9 34 15 11 40 11 9 29 14 10 37 12 8 36 16 10 42 15 11 40 13 9 34 17 11 44 16 10 46 18 12 47 14 10 48 17 11 44 19 13 50 15 11 40 18 12 47 16 10 46 20 12 52 19 13 50 17 11 44 21 13 54 22 14 56 18 12 57 20 12 58 21 13 60 24 15 61 19 13 62 18 12 57 22 14 56 23 14 64 24 15 61 21 13 60 25 15 66 26 16 68 23 14 69 22 14 70 25 15 72 28 17 73 24 15 74 23 14 69 26 16 68 27 16 76 28 17 73 25 15 72 29 17 78 30 18 80 27 16 81 26 16 82 32 19 84 28 17 73 29 17 78 27 16 81 30 18 80 31 18 86 28 17 73 32 19 84 33 19 88 34 20 90 31 18 91 30 18 92 36 21 94 33 19 95 32 19 96 31 18 91 34 20 90 35 20 98 33 19 95 36 21 94 37 21 100 38 22 102 35 20 103 34 20 104 40 23 106 37 21 107 36 21 108 35 20 103 38 22 102 39 22 110 37 21 107 40 23 106 41 23 112 42 24 114 39 22 115 38 22 116 44 25 118 41 23 119 40 23 120 39 22 115 42 24 114 43 24 122 41 23 119 44 25 118 45 25 124 46 26 126 43 24 127 42 24 128 48 27 130 45 25 124 44 25 118 43 24 127 46 26 126 47 26 132 45 25 124 48 27 130 49 27 134 50 28 136 47 26 137 46 26 138 52 29 140 49 27 134 48 27 130 47 26 137 50 28 136 51 28 142 49 27 134 52 29 140 53 29 144 54 30 146 51 28 147 50 28 148 55 31 150 53 31 151 52 31 152 51 28 147 54 30 146 55 30 154 53 31 151 55 31 150 54 31 155 </p>
+            </triangles>
+            <triangles material="material_3_4_0" count="26">
+               <input semantic="VERTEX" source="#mesh1-geometry-vertex" offset="0"/>
+               <input semantic="NORMAL" source="#mesh1-geometry-normal" offset="1"/>
+               <input semantic="TEXCOORD" source="#mesh1-geometry-uv" offset="2" set="0"/>
+               <p>1 1 4 4 1 5 2 1 6 4 1 5 1 1 4 7 1 16 2 1 6 4 1 5 8 1 17 2 1 6 8 1 17 9 1 28 9 1 28 8 1 17 13 1 33 13 1 33 8 1 17 14 1 39 13 1 33 14 1 39 17 1 43 17 1 43 14 1 39 18 1 49 17 1 43 18 1 49 21 1 53 21 1 53 18 1 49 23 1 59 21 1 53 23 1 59 25 1 65 25 1 65 23 1 59 27 1 71 25 1 65 27 1 71 29 1 77 29 1 77 27 1 71 31 1 83 29 1 77 31 1 83 32 1 87 32 1 87 31 1 83 35 1 93 32 1 87 35 1 93 36 1 99 36 1 99 35 1 93 39 1 105 36 1 99 39 1 105 40 1 111 40 1 111 39 1 105 43 1 117 40 1 111 43 1 117 44 1 123 44 1 123 43 1 117 47 1 129 44 1 123 47 1 129 48 1 133 48 1 133 47 1 129 51 1 139 48 1 133 51 1 139 52 1 143 52 1 143 51 1 139 55 1 149 </p>
+            </triangles>
+            <triangles material="material_2_3_0" count="26">
+               <input semantic="VERTEX" source="#mesh1-geometry-vertex" offset="0"/>
+               <input semantic="NORMAL" source="#mesh1-geometry-normal" offset="1"/>
+               <input semantic="TEXCOORD" source="#mesh1-geometry-uv" offset="2" set="0"/>
+               <p>0 4 10 6 4 11 3 4 12 10 4 19 0 4 10 5 4 20 6 4 11 0 4 10 10 4 19 10 4 19 5 4 20 12 4 30 12 4 30 5 4 20 11 4 35 12 4 30 11 4 35 16 4 41 16 4 41 11 4 35 15 4 45 16 4 41 15 4 45 20 4 51 20 4 51 15 4 45 19 4 55 20 4 51 19 4 55 22 4 63 22 4 63 19 4 55 24 4 67 22 4 63 24 4 67 26 4 75 26 4 75 24 4 67 28 4 79 26 4 75 28 4 79 30 4 85 30 4 85 28 4 79 33 4 89 30 4 85 33 4 89 34 4 97 34 4 97 33 4 89 37 4 101 34 4 97 37 4 101 38 4 109 38 4 109 37 4 101 41 4 113 38 4 109 41 4 113 42 4 121 42 4 121 41 4 113 45 4 125 42 4 121 45 4 125 46 4 131 46 4 131 45 4 125 49 4 135 46 4 131 49 4 135 50 4 141 50 4 141 49 4 135 53 4 145 50 4 141 53 4 145 54 4 153 </p>
+            </triangles>
+            <triangles material="material_1_2_0" count="2">
+               <input semantic="VERTEX" source="#mesh1-geometry-vertex" offset="0"/>
+               <input semantic="NORMAL" source="#mesh1-geometry-normal" offset="1"/>
+               <input semantic="TEXCOORD" source="#mesh1-geometry-uv" offset="2" set="0"/>
+               <p>3 5 13 7 5 14 1 5 15 7 5 14 3 5 13 6 5 21 </p>
+            </triangles>
+         </mesh>
+      </geometry>
+   </library_geometries>
+   <library_cameras>
+      <camera id="Camera-camera" name="Camera-camera">
+         <optics>
+            <technique_common>
+               <perspective>
+                  <xfov>46.666667</xfov>
+                  <yfov>35.000000</yfov>
+                  <znear>0.083333</znear>
+                  <zfar>83.333333</zfar>
+               </perspective>
+            </technique_common>
+         </optics>
+      </camera>
+   </library_cameras>
+   <library_visual_scenes>
+      <visual_scene id="SketchUpScene" name="SketchUpScene">
+         <node id="Model" name="Model">
+            <node id="mesh1" name="mesh1">
+               <instance_geometry url="#mesh1-geometry">
+                  <bind_material>
+                     <technique_common>
+                        <instance_material symbol="material_0_1_0" target="#material_0_1_0ID">
+                           <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD" input_set="0"/>
+                        </instance_material>
+                        <instance_material symbol="material_3_4_0" target="#material_3_4_0ID">
+                           <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD" input_set="0"/>
+                        </instance_material>
+                        <instance_material symbol="material_2_3_0" target="#material_2_3_0ID">
+                           <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD" input_set="0"/>
+                        </instance_material>
+                        <instance_material symbol="material_1_2_0" target="#material_1_2_0ID">
+                           <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD" input_set="0"/>
+                        </instance_material>
+                     </technique_common>
+                  </bind_material>
+               </instance_geometry>
+            </node>
+         </node>
+         <node id="Camera" name="Camera">
+            <matrix>
+               0.807712 0.138852 -0.572993 -1.747450
+               -0.589577 0.190225 -0.784993 -5.412271
+               -0.000000 0.971872 0.235511 2.595917
+               0.000000 0.000000 0.000000 1.000000
+            </matrix>
+            <instance_camera url="#Camera-camera"/>
+         </node>
+      </visual_scene>
+   </library_visual_scenes>
+   <scene>
+      <instance_visual_scene url="#SketchUpScene"/>
+   </scene>
+</COLLADA>

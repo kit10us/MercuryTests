@@ -1,0 +1,10 @@
+<xml>
+  <shape>
+    <type>cylinder</type>
+    <effect name="cube" source="EffectTextured.effect"/>
+    <segments>24</segments>
+    <radius>1</radius>
+    <height>2</height>
+    <diffuse>255,0,255,255</diffuse>
+  </shape>
+</xml>

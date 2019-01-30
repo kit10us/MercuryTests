@@ -1,0 +1,16 @@
+REM del d3d8d.dll
+REM del d3d9d.dll
+REM del d3dref.dll
+REM del d3dref8.dll
+REM del d3dref9.dll
+REM del d3dx9d_30.dll
+REM del dinput8d.dll
+REM del dmbandd.dll
+REM del dmcompod.dll
+REM del dmimed.dll
+REM del dmloaded.dll
+REM del dmscripd.dll
+REM del dmstyled.dll
+REM del dmsynthd.dll
+REM del dmusicd.dll
+REM del dswaved.dll

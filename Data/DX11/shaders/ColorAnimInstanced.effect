@@ -1,0 +1,7 @@
+<?xml profile="1.0" encoding="iso-8859-1"?>
+<xml>
+  <effect>
+    <pixelshader name="ColorAnimInstanced" source="ColorAnimInstanced.xml"/>
+    <vertexshader name="ColorAnimInstanced" source="ColorAnimInstanced.xml"/>
+  </effect>
+</xml>

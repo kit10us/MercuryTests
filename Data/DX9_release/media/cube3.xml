@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xml>
+<!-- Note: Index in vertex definition is arbatrary, and if included (which is suggested) is used as checking AND should start 0-->
+
+<geometry>
+  <pixelshaderlist>
+
+    <!-- This shader mixes between two images by a third -->
+    <!-- Putting this shader here will add the shader to the global shader library, however, it will NOT generate an implementation -->
+    <addpixelshader name="Cube Shader">
+      <![CDATA[
+        ps.1.2;
+        tex t0;
+        tex t1;
+        mul r0, t0, t1;
+      ]]>
+    </addpixelshader>
+  </pixelshaderlist>
+
+  <effectlist>
+    <effect name="cube">
+      <texture name="cube" source="borgcube.bmp" stage="0"/>
+      <texture name="borgcut" source="borgcut.bmp" stage="1"/>
+      <pixelshader name="Cube Shader"/>
+    </effect>
+  </effectlist>
+
+  <vertexlist format="XYZ|TEX1|TEX2">
+    <!-- Front  -->
+    <vertex index=" 0" x="-10" y=" 10" z="-10" tu="0" tv="0" tu2="0" tv2="0"/>
+    <vertex index=" 1" x=" 10" y=" 10" z="-10" tu="0" tv="1" tu2="0" tv2="1"/>
+    <vertex index=" 2" x="-10" y="-10" z="-10" tu="1" tv="0" tu2="1" tv2="0"/>
+    <vertex index=" 3" x=" 10" y="-10" z="-10" tu="1" tv="1" tu2="1" tv2="1"/>
+
+    <!-- Back   -->
+    <vertex index=" 4" x=" 10" y=" 10" z=" 10" tu="0" tv="0" tu="0" tv="0"/>
+    <vertex index=" 5" x="-10" y=" 10" z=" 10" tu="0" tv="1" tu="0" tv="0"/>
+    <vertex index=" 6" x=" 10" y="-10" z=" 10" tu="1" tv="0" tu="0" tv="0"/>
+    <vertex index=" 7" x="-10" y="-10" z=" 10" tu="1" tv="1" tu="0" tv="0"/>
+
+    <!-- Left   -->
+    <vertex index=" 8" x="-10" y=" 10" z=" 10" tu="0" tv="0" tu2="0" tv2="0"/>
+    <vertex index=" 9" x="-10" y=" 10" z="-10" tu="0" tv="1" tu2="0" tv2="1"/>
+    <vertex index="10" x="-10" y="-10" z=" 10" tu="1" tv="0" tu2="1" tv2="0"/>
+    <vertex index="11" x="-10" y="-10" z="-10" tu="1" tv="1" tu2="1" tv2="1"/>
+
+    <!-- Right   -->
+    <vertex index="12" x=" 10" y=" 10" z="-10" tu="0" tv="0" tu2="0" tv2="0"/>
+    <vertex index="13" x=" 10" y=" 10" z=" 10" tu="0" tv="1" tu2="0" tv2="1"/>
+    <vertex index="14" x=" 10" y="-10" z="-10" tu="1" tv="0" tu2="1" tv2="0"/>
+    <vertex index="15" x=" 10" y="-10" z=" 10" tu="1" tv="1" tu2="1" tv2="1"/>
+
+    <!-- Top    -->
+    <vertex index="16" x=" 10" y=" 10" z="-10" tu="0" tv="0" tu2="0" tv2="0"/>
+    <vertex index="17" x="-10" y=" 10" z="-10" tu="0" tv="1" tu2="0" tv2="1"/>
+    <vertex index="18" x=" 10" y=" 10" z=" 10" tu="1" tv="0" tu2="1" tv2="0"/>
+    <vertex index="19" x="-10" y=" 10" z=" 10" tu="1" tv="1" tu2="1" tv2="1"/>
+
+    <!-- Bottom   -->
+    <vertex index="20" x="-10" y="-10" z="-10" tu="0" tv="0" tu2="0" tv2="0"/>
+    <vertex index="21" x=" 10" y="-10" z="-10" tu="0" tv="1" tu2="0" tv2="1"/>
+    <vertex index="22" x="-10" y="-10" z=" 10" tu="1" tv="0" tu2="1" tv2="0"/>
+    <vertex index="23" x=" 10" y="-10" z=" 10" tu="1" tv="1" tu2="1" tv2="1"/>
+  </vertexlist>
+
+  <indexlist>
+    <!-- Front  -->
+    0, 1, 2,
+    1, 3, 2,
+
+    <!-- Back   -->
+    4, 5, 6,
+    5, 7, 6,
+
+    <!-- Left   -->
+    8, 9, 10,
+    9, 11, 10,
+		
+    <!-- Right  -->
+    12, 13, 14,
+    13, 15, 14,
+		
+    <!-- Top    -->
+    16, 17, 18,
+    17, 19, 18,
+		
+    <!-- Bottom -->
+    20, 21, 22,
+    21, 23, 22
+  </indexlist>
+
+  <methodlist>
+    <addmethod effect="cube" type="trianglelist" vertices="24" indices="36" primitives="12"/>
+  </methodlist>
+
+</geometry>
+</xml>

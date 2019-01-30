@@ -1,0 +1,8 @@
+<xml>
+  <shape>
+    <type>cube</type>
+    <effect name="cube" source="EffectTextured.effect"/>
+    <size3>2,2,2</size3>
+    <diffuse>255,0,0,255</diffuse>
+  </shape>
+</xml>

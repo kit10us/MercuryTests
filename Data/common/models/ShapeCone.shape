@@ -1,0 +1,10 @@
+<xml>
+  <shape>
+    <type>cone</type>
+    <effect name="cube" source="EffectTextured.effect"/>
+    <segments>24</segments>
+    <radius>1</radius>
+    <height>2</height>
+    <diffuse>255,0,0,255</diffuse>
+  </shape>
+</xml>

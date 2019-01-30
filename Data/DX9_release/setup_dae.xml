@@ -1,0 +1,11 @@
+<xml>
+<include>setup_base.xml</include>
+
+<extension source="../../extensions/$TARGET$/MEDAELoader.dll">
+	<color name="color" source="EffectColor.effect"/>
+	<texture name="texture" source="EffectTextured.effect"/>
+</extension>
+
+<include>meeditor.xml</include>
+<include>inputs.xml</include>
+</xml>

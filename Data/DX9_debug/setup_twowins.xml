@@ -1,0 +1,27 @@
+<xml>
+
+<include>setup.xml</include>
+
+<title>DX9 Test (Debug)</title>
+
+<renderer source="../../extensions/Debug/MercuryEngineDX9.dll">
+	<display fullscreen="false" x="10" y="10" width="800" height="600"/>
+	<display fullscreen="false" x="400" y="100" width="800" height="600"/>
+</renderer>
+
+<failuresAsCritical>true</failuresAsCritical>
+<logfile>log.txt</logfile>
+<assets>shaders/</assets>
+<assets>../test_data/</assets>
+<assets>../test_data/effects/</assets>
+<assets>../test_data/images/</assets>
+<assets>../test_data/models/</assets>
+<assets>../test_data/scripts/</assets>
+
+<extension source="../../extensions/Debug/MELua.dll">
+	<startup>twowins.lua</startup>
+</extension>
+
+<include>meeditor.xml</include>
+<include>inputs.xml</include>
+</xml>

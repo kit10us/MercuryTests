@@ -1,0 +1,9 @@
+<?xml profile="1.0" encoding="iso-8859-1"?>
+<xml>
+  <effect>
+    <pixelshader name="texture3D" source="texture3d.xml"/>
+    <vertexshader name="texture3D" source="texture3d.xml"/>
+    <texture name="borgcube" stage="0" source="borgcube.bmp"/>
+    <texture name="borgcube" stage="0" source="borgcube.bmp"/>
+  </effect>
+</xml>

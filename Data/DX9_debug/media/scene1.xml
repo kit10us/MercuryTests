@@ -1,0 +1,88 @@
+<xml>
+  <scene>
+
+	<!-- ???
+    <addcustomcontrollers/>
+	-->
+    
+	<!-- ???
+    <addpaths source="paths1.xml"/>
+	-->
+    
+	<resources>
+      <geometry name="cube" type="shape" source="ShapeCube.xml"/>
+      <geometry name="pointfield" type="shape" source="ShapePointField.xml"/>
+      <geometry name="pointring" type="shape" source="ShapePointRing.xml"/>
+      <geometry name="dashring" type="shape" source="ShapeDashRing.xml"/>
+      <geometry name="pyramid" type="shape" source="ShapePyramid.xml"/>
+      <geometry name="circle" type="shape" source="ShapeCircle.xml"/>
+      <geometry name="sphere" type="shape" source="ShapeSphere.xml"/>
+      <geometry name="cylinder" type="shape" source="ShapeCylinder.xml"/>
+      <geometry name="tube" type="shape" source="ShapeTube.xml"/>
+      <geometry name="plane" type="shape" source="ShapePlane.xml"/>
+      <geometry name="cone" type="shape" source="ShapeCone.xml"/>
+	</resources>
+    
+    <addobject name="cube" geometry="cube" physics="cube">
+    <position x="-4.5" y="3" z="0"/>
+    </addobject>
+    
+    <addobject name="pointfield" geometry="pointfield" physics="sphere">
+    <position x="-1.5" y="3" z="0"/>
+    </addobject>
+    
+    <addobject name="pointring" geometry="pointring" physics="cylinder">
+    <position x="1.5" y="3" z="0"/>
+    </addobject>
+    
+    <addobject name="dashring" geometry="dashring" physics="dashring">
+    <position x="4.5" y="3" z="0"/>
+    </addobject>
+    
+    <addobject name="pyramid" geometry="pyramid">
+    <position x="-4.5" y="0" z="0"/>
+    </addobject>
+    
+    <addobject name="circle" geometry="circle" physics="dashring">
+    <position x="-1.5" y="0" z="0"/>
+    </addobject>
+    
+    <addobject name="sphere" geometry="sphere" physics="sphere">
+    <position x="1.5" y="0" z="0"/>
+    </addobject>
+    
+    <addobject name="cylinder" geometry="cylinder" physics="cylinder">
+    <position x="4.5" y="0" z="0"/>
+    </addobject>
+    
+    <addobject name="tube" geometry="tube" physics="cylinder">
+    <position x="-4.5" y="-3" z="0"/>
+    </addobject>
+    
+    <addobject name="plane" geometry="plane" physics="plane">
+    <position x="-1.5" y="-3" z="0"/>
+    </addobject>
+    
+    <addobject name="cone" geometry="cone" physics="cone">
+    <position x="1.5" y="-3" z="0"/>
+    </addobject>
+    
+    <addobject name="camera">
+	<position x="0" y="5" z="-17"/>
+	<lookat x="0" y="0" z="0"/>
+    </addobject>
+    
+	<!--
+    <controller object="camera" type="camerafollow" follow="tiny" distance="10">
+    <orbit x="0" y="1" z="0" rotation="-1.57079"/>
+    </controller>
+	-->
+    
+    <!--
+    <controller object="camera" type="path" path="camera" looping="true"/>
+    -->
+    
+    <setcamera>camera</setcamera>
+    
+  </scene>
+</xml>

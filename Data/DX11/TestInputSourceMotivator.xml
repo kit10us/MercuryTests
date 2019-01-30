@@ -1,0 +1,19 @@
+<xml>
+  <include>setup.xml</include>
+  
+  <extension source="?EXTENSIONS?/MELua.dll">
+  	<startup>game_inputsourcemotivator.lua</startup>
+  </extension>
+  
+  <include>ext_Dae.xml</include>
+  <include>ext_Ase.xml</include>
+  
+  <extension source="?EXTENSIONS?/MEKeyboard.dll"/>
+  <extension source="?EXTENSIONS?/MEMouse.dll"/>
+  <extension source="?EXTENSIONS?/MEGamepad.dll"/>
+  
+  <include>ext_MEEditor.xml</include>
+  <include>Controls.xml</include>
+
+  <StartScene/>
+</xml>

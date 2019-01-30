@@ -1,0 +1,14 @@
+<xml>
+  <include>Setup.xml</include>
+  <logfile>lua_sendcommand_log.txt</logfile>
+  
+  <extension source="?EXTENSIONS?/MELua.dll">
+  	<auto>lua_sendcommand</auto>
+  </extension>
+  <extension source="?EXTENSIONS?/MEKeyboard.dll"/>
+  
+  <include>EXT_MEEditor.xml</include>
+  <include>Controls.xml</include>
+
+  <StartScene/>
+</xml>

@@ -1,0 +1,12 @@
+<xml>
+<extension source="../../extensions/Release/MEEditor.dll">
+	<inputs>
+		<inputaction input="keyboard" condition="ButtonPressed" name="F11">
+			<action name="OpenEditor"/>
+		</inputaction>
+		<inputaction input="gamepad" condition="ButtonPressed" name="Start">
+			<action name="OpenEditor"/>
+		</inputaction>
+	</inputs>
+</extension>
+</xml>

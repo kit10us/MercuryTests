@@ -1,0 +1,7 @@
+<xml>
+<include>setup.xml</include>
+<include>ext_dae.xml</include>
+<include>ext_ase.xml</include>
+<include>meeditor.xml</include>
+<include>inputs.xml</include>
+</xml>

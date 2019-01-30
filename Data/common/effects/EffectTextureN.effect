@@ -1,0 +1,21 @@
+<?xml profile="1.0" encoding="iso-8859-1"?>
+<xml>
+  <effect>
+    <pixelshader name="texture3D">
+      <source>texture3dN.shader</source>
+	  <entry>ps_main</entry>
+	  <profile>ps_1_1</profile>
+	</pixelshader>
+    <vertexshader nme="texture3D">
+      <source>texture3dN.shader</source>
+	  <entry>vs_main</entry>
+      <profile>vs_1_1</profile>
+      <vd>
+        <element name="Position" type="Float3"/>
+        <element name="Normal" type="Float3"/>
+        <element name="Diffuse" type="D3DCOLOR"/>
+      </vd>
+    </vertexshader>    
+    <texture name="borgcube" stage="0" source="borgcube.bmp"/>
+  </effect>
+</xml>

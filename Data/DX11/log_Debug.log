@@ -1,0 +1,81 @@
+ Entering Game::Initialize block
+
+ Entering ::xmlLoader first pass block
+
+[Game::Initialize ::xmlLoader first pass ] loading "Models.xml"
+
+[ResourceManager::Add] Script manager: adding "Models.xml" (Models.xml).
+
+[Game::Initialize ::xmlLoader first pass ] loading "setup.xml"
+
+[ResourceManager::Add] Script manager: adding "setup.xml" (setup.xml).
+
+[Game::Initialize ::xmlLoader first pass ] loading "Common.xml"
+
+[ResourceManager::Add] Script manager: adding "Common.xml" (../common/Common.xml).
+
+ Entering Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" block
+
+ Entering MELoader block
+
+ Entering DefaultDebug block
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader ] Log file: log_Debug.log
+
+ Entering Game::AddExtension "../../../extensions/Debug/MEDAELoader.dll" block
+
+ Entering MELoader block
+
+ Entering Game::AddExtension "../../../extensions/Debug/MEASELoader.dll" block
+
+ Entering MELoader block
+
+ Entering Game::AddExtension "../../../extensions/Debug/MEEditor.dll" block
+
+ Entering MELoader block
+
+ Entering OS Startup block
+
+ Entering Scene::ChangeScene block
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Scene::ChangeScene ] Starting scene "main" Begin
+
+ Entering Scene::OnBeforeStart block
+
+ Entering ::Component "ObjectAllocatorComponent block
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Scene::ChangeScene Scene::OnBeforeStart ::Component "ObjectAllocatorComponent ] enabled
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Scene::ChangeScene ] OnStart Begin
+
+ Entering Scene::AddResources(resources/Standard.me_res) block
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Scene::ChangeScene ] OnStart End
+
+ Entering Scene::OnAfterStart block
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Scene::ChangeScene Scene::OnAfterStart ] Component "ObjectAllocatorComponent" OnAfterStart Begin
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Scene::ChangeScene Scene::OnAfterStart ] Component "ObjectAllocatorComponent" OnAfterStart Done
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Scene::ChangeScene ] Start scene "main" Done
+
+ Entering Game::Private_Shutdown block
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Game::Private_Shutdown ] Shutting down
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Game::Private_Shutdown ] OnDetach begin
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Game::Private_Shutdown ] Detaching SceneManager
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Game::Private_Shutdown ] Detaching ActionFactory
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Game::Private_Shutdown ] Detaching ActionsGameComponent
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Game::Private_Shutdown ] OnDetach done
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Game::Private_Shutdown ] time: Tue Jan 29 14:07:10 2019
+
+
+[Game::Initialize ::xmlLoader first pass Game::AddExtension "../../../extensions/Debug/MERendererDX11.dll" MELoader Game::Private_Shutdown ] frames: 602, total delta: 2.250325s,  average fps:444.380188
+

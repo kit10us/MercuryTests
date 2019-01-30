@@ -1,0 +1,21 @@
+<xml>
+<include>setup_base.xml</include>
+
+<extension source="../../extensions/Release/MELua.dll">
+	<startup>game_inputsourcemotivator.lua</startup>
+</extension>
+
+<include>dae.xml</include>
+
+<extension source="../../extensions/Release/ASELoader.dll">
+	<textureps name="textured_ambient" source="textured_ambient.xml"/>
+	<texturevs name="textured_ambient" source="textured_ambient.xml"/>
+</extension>
+
+<extension source="../../extensions/Release/DXIKeyboard.dll"/>
+<extension source="../../extensions/Release/DXIMouse.dll"/>
+<extension source="../../extensions/Release/DXIGamepad.dll"/>
+
+<include>meeditor.xml</include>
+<include>inputs.xml</include>
+</xml>

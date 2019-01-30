@@ -1,0 +1,11 @@
+<res>
+
+<asset type="effect" name="ColorSimple" source="ColorSimple.effect"/>
+<asset type="effect" name="TextureSimple" source="TextureSimple.effect"/>
+<asset type="effect" name="TextureAndColor" source="TextureAndColor.effect"/>
+<asset type="effect" name="FourColors" source="FourColors.effect"/>
+<asset type="effect" name="ColorAmbient" source="ColorAmbient.effect"/>
+<asset type="effect" name="TextureAmbient" source="TextureAmbient.effect"/>
+<asset type="effect" name="ColorAmbientInstanced" source="ColorAmbientInstanced.effect"/>
+
+</res>

@@ -1,0 +1,31 @@
+I am rendering my geometry via a DrawIndexedInstanced call, where I am instancing via N 4x4 matrices, thus my D3D11_MAPPED_SUBRESOURCE is full of matricies (one for each geometry to be rendered). This works well, however, I believe I am bottle-necked by the time it takes to copy the matrices into the sub-resource. I try to prove/test this by increasing the size of the buffer (and thus the number of geometry I am batching to render) to a point that causes my frame-rate to decrease instead of increase.
+
+I doubt I am taking advantage of the asynchronous nature of Direct-X 11. I did something similar back in DX8, which basically aloud me to lock only a sub-section of a buffer for CPU write, while the GPU would continue to read the unlocked section; in this way I was able to update half of the buffer while drawing the other half, then switch halves and continue; sort of similar to what we do with a backbuffer/flip, right?
+
+Any advice or recommendations on accomplishing this?
+
+this is the general nature of how I am currently rendering:
+
+[for each chunk of matrices, up to size of the D3D11_MAPPED_SUBRESOURCE] {
+    dxContext->Map
+    dxContext->Unmap
+    dxContext->IASetVertexBuffers
+    dxContext->DrawIndexedInstanced
+}
+
+I'm not sure how to make this kind of structure in DX11, perhaps it's the parameters to create the sub-resource buffer? Perhaps I just create two sub-resource buffers and jump between the two?
+
+Does the nature of D3D11_MAP_WRITE_DISCARD mean I don't have to worry about syncing? Because, from what I've read, DX11 is pretty async at the moment, so perhaps this all is already taken care of under the hood? Such as when I loop and call Map, perhaps it just gives me a complete different memory segment? That doesn't seem likely to me; it's too automatic, and who then allocated that extra buffer space? So I doubt this...
+
+Is there any solid sources on generally pushing CPU/GPU utilization, esp. with asynchronous draw calls?
+
+Also, with this list of calls:
+dxContext->Map
+dxContext->Unmap
+dxContext->IASetVertexBuffers
+dxContext->DrawIndexedInstanced
+
+...which if any of these is an actual blocking call? That is to say, which will likely stall my CPU? Again, I really am not having luck finding Direct-X 11 asynchronous documentation.
+
+Thanks,
+Q

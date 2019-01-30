@@ -1,0 +1,19 @@
+<root>
+
+<terra name="earthland" size="10,7" fvf="XYZ | Tex1" rowscolumns="200,140" constant="0" texarea="full">
+  <heightmap name="earthb" source="earthb.bmp" colorop=".5,.25,-1"/>
+  <effect index="0" name="land">
+    <texture stage="0" name="land" source="earthb.bmp"/>
+	<blend>false</blend>
+  </effect>
+</terra>
+
+<terra name="earthwater" size="10,7" fvf="XYZ | Tex1" rowscolumns="10,7" constant="0.1" texarea="full">
+  <alphatmap name="EarthWaterCutoutMap" source="EarthWaterCutoutMap.bmp" colorop="1,0,0"/>
+  <effect index="0" name="cutout">
+    <texture index="0" name="land" source="earthb.bmp"/>
+	<blend>true, one, one</blend>
+  </effect>
+</terra>
+
+</root>

@@ -1,0 +1,23 @@
+<xml>
+<!-- This declaration is meant to stand alone in it's own source, mostly for testing.-->
+<vertexdeclaration name="generic" stream="0">
+<!--
+<element 
+stream="(int)" 
+offset="(int)" 
+type="{FLOAT1,FLOAT2,FLOAT3,FLOAT4,D3DCOLOR,UBYTE4,SHORT2,SHORT4,UBYTE4N,SHORT2N,SHORT4N,USHORT2N,USHORT4N,UDEC3,DEC3N,FLOAT16_2,FLOAT16_4,UNUSED}" 
+method="{DEFAULT,PARTIALU,PARTIALV,CROSSUV,UV,LOOKUP,LOOKUPPRESAMPLED}" 
+usage="{POSITION,BLENDWEIGHT,BLENDINDICES,NORMAL,PSIZE,TEXCOORD,TANGENT,BINORMAL,TESSFACTOR,POSITIONT,COLOR,FOG,DEPTH,SAMPLE}"
+usageindex="(int)"
+/>
+-->
+<element stream="0" offset="0" type="FLOAT3" method="DEFAULT" usage="POSITION" usageindex="0"/>
+<element stream="0" offset="12" type="FLOAT2" method="DEFAULT" usage="TEXCOORD" usageindex="0"/>
+<element stream="0" offset="20" type="D3DCOLOR" method="DEFAULT" usage="COLOR" usageindex="0"/>
+</vertexdeclaration>
+</xml>
+
+
+
+
+

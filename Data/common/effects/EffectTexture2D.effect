@@ -1,0 +1,7 @@
+<?xml profile="1.0" encoding="iso-8859-1"?>
+<xml>
+  <effect name="texture2d">
+    <pixelshader name="texture2d" source="texture2d.xml"/>
+    <vertexshader name="texture2d" source="texture2d.xml"/>
+  </effect>
+</xml>

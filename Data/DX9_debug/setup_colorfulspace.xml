@@ -1,0 +1,17 @@
+<xml>
+<include>setup.xml</include>
+
+<extension source="../../extensions/Debug/MELua.dll">
+	<startup>colorfulspace.lua</startup>
+</extension>
+
+<include>ext_dae.xml</include>
+<include>ext_ase.xml</include>
+
+<extension source="../../extensions/Debug/DXIKeyboard.dll"/>
+<extension source="../../extensions/Debug/DXIMouse.dll"/>
+<extension source="../../extensions/Debug/DXIGamepad.dll"/>
+
+<include>meeditor.xml</include>
+<include>inputs.xml</include>
+</xml>

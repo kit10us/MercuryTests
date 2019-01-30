@@ -1,0 +1,17 @@
+<xml>
+<include>setup.xml</include>
+
+<extension source="?EXTENSIONS?/MELua.dll">
+	<startup>game_inputs.lua</startup>
+</extension>
+
+<include>ext_dae.xml</include>
+<include>ext_ase.xml</include>
+
+<extension source="?EXTENSIONS?/DXIKeyboard.dll"/>
+<extension source="?EXTENSIONS?/DXIMouse.dll"/>
+<extension source="?EXTENSIONS?DXIGamepad.dll"/>
+
+<include>meeditor.xml</include>
+<include>inputs.xml</include>
+</xml>

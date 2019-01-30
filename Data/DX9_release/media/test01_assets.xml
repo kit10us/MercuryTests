@@ -1,0 +1,4 @@
+<assets>
+<resource type="texture" id="image" source="media/Sig10_1024"/>
+<resource type="effect" id="textured2d" source="media/EffectTextured2D.xml"/>
+</assets>

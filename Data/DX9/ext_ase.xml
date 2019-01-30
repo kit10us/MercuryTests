@@ -1,0 +1,6 @@
+<xml>
+<extension source="?EXTENSIONS?/MEASELoader.dll">
+	<textureps name="texture3d" source="texture3d.xml"/>
+	<texturevs name="texture3d" source="texture3d.xml"/>
+</extension>
+</xml>
