@@ -9,7 +9,7 @@ using namespace me;
 class MyGame : public game::Game
 {
 public: 
-	MyGame() : Game( unify::Path( "TwoWindows.xml" ) ) {}
+	MyGame() : Game( unify::Path( "setup/TwoWindows.me_setup" ) ) {}
 } myGame;
 
 RegisterGame( myGame );

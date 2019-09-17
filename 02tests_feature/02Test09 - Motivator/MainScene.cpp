@@ -8,7 +8,6 @@
 #include <me/scene/component/AutoBBoxSceneComponent.h>
 #include <me/object/component/BBoxRendererComponent.h>
 #include <me/object/component/CameraComponent.h>
-#include <sg/ShapeCreators.h>
 
 using namespace me;
 using namespace render;
@@ -52,17 +51,24 @@ void MainScene::OnStart()
 	camera->GetFrame().SetPosition( unify::V3< float >( 0, 5, -17 ) );
 	camera->GetFrame().LookAt( unify::V3< float >( 0, 0, 0 ) );
 
-	// From dynamically generated geometry (shape creator)...
-	sg::CubeParameters cubeParameters;
-	cubeParameters.SetEffect( colorEffect );
-    cubeParameters.SetSize( unify::Size3< float >( 2, 2, 2 ) );
-	cubeParameters.SetDiffuseFaces( unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta() );
-	Geometry::ptr meshProg( sg::CreateShape( GetOS()->GetRenderer(0), cubeParameters ) );
-	PrimitiveList & plProg = ((Mesh*)meshProg.get())->GetPrimitiveList();
+	// Get the shape creator...
+	auto shapeCreator = GetManager< Geometry >()->GetFactory("me_shape");
+
+	unify::Parameters parameters {
+		{ "type", "box" },
+		{ "effect", colorEffect },
+		{ "size3", unify::Size3< float >(2, 2, 2) },
+		{ "diffuses", std::vector< unify::Color >{
+			unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta()
+			}
+		}
+	};
+
 	auto progObject = GetObjectAllocator()->NewObject( "cubeDyna" );
-	AddGeometryComponent( progObject, meshProg );
+	AddGeometryComponent( progObject, shapeCreator->Produce( parameters ) );
 	progObject->GetFrame().SetPosition( unify::V3< float >( 0 - 0.0f, 0, 0 ) );
 	progObject->AddComponent( object::component::IObjectComponent::ptr( new object::component::BBoxRendererComponent( GetOS(), colorEffect ) ) );
+
 
 	// From an XML file...
 	Geometry::ptr meshXML( GetManager< Geometry >()->Add( "cubeXML", unify::Path( "cube.xml" ) ) );

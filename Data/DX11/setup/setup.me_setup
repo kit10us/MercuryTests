@@ -2,7 +2,7 @@
 
 <define name="RENDERER">DX11</define>
 <assets>../common/</assets>
-<include>Common.xml</include>
+<include>setup/common.me_setup</include>
 <StartScene>Main</StartScene>
 
 </xml>

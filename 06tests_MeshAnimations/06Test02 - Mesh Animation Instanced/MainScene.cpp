@@ -25,7 +25,7 @@ void MainScene::OnStart()
 	auto colorInstancedAmbientEffect = GetAsset< Effect >( "ColorAmbientInstanced" );
 
 	// Load effect...
-	auto colorAnimInstancedEfect = GetManager< Effect>()->Add( "ColorAnimInstanced", unify::Path( "ColorAnimInstanced.effect" ) );
+	auto colorAnimInstancedEfect = GetManager< Effect>()->Add( "ColorAnimInstanced", unify::Path( "ColorAnimInstanced.me_effect" ) );
 
 	auto effect = Effect::ptr{ new me::render::Effect( 
 		GetAsset< IVertexShader >( "ColorAnimInstanced" ), 

@@ -7,7 +7,6 @@
 #include <me/factory/VertexShaderFactory.h>
 #include <me/object/component/BBoxRendererComponent.h>
 #include <me/object/component/CameraComponent.h>
-#include <sg/ShapeCreators.h>
 #include <me/render/LOD.h>
 
 using namespace me;
@@ -76,32 +75,36 @@ void MainScene::OnUpdate( const UpdateParams & params )
 			auto object = GetObjectAllocator()->NewObject( objectName );
 			object->GetFrame().SetPosition( unify::V3< float >( 0 - 0.0f, 0, 0 ) );
 
+			auto shapeCreator = GetManager< Geometry >()->GetFactory("me_shape");
+
 			// Add geometry
-			Effect::ptr colorEffect = GetManager< Effect >()->Find( "color3d" );
+			Effect::ptr colorEffect = GetManager< Effect >()->Find( "ColorSimple" );
 
 			if( m_objectIndex == 1 )
 			{
-				sg::CubeParameters cubeParameters;
-				cubeParameters.SetEffect( colorEffect );
-				cubeParameters.SetSize( unify::Size3< float >( 2, 2, 2 ) );
-				cubeParameters.SetDiffuseFaces( unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta() );
-				Geometry::ptr meshProg( sg::CreateShape( GetOS()->GetRenderer( 0 ), cubeParameters ) );
-				PrimitiveList & plProg = ( (Mesh*)meshProg.get() )->GetPrimitiveList();
+				unify::Parameters parameters{
+					{ "type", "box" },
+					{ "effect", colorEffect },
+					{ "size3", unify::Size3< float >(2.0f, 2.0f, 2.0f) },
+					{ "diffuses", std::vector< unify::Color >{
+							unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta()
+						}
+					}
+				};
 
-				auto component = AddGeometryComponent( object, meshProg );
+				auto component = AddGeometryComponent(object, shapeCreator->Produce(parameters));
 				component->GetLookup()->SetValue( "alias", "cube" );
-
 			}
 			else
 			{
-				sg::SphereParameters sphereParameters;
-				sphereParameters.SetEffect( colorEffect );
-				sphereParameters.SetRadius( 2 );
-				sphereParameters.SetDiffuse( unify::ColorRed() );
-				Geometry::ptr meshProg( sg::CreateShape( GetOS()->GetRenderer( 0 ), sphereParameters ) );
-				PrimitiveList & plProg = ( (Mesh*)meshProg.get() )->GetPrimitiveList();
+				unify::Parameters parameters{
+					{ "type", (std::string)"sphere" },
+					{ "effect", colorEffect },
+					{ "radius", 2.0f },
+					{ "diffuse", unify::ColorRed() }
+				};
 
-				auto component = AddGeometryComponent( object, meshProg );
+				auto component = AddGeometryComponent(object, shapeCreator->Produce(parameters));
 				component->GetLookup()->SetValue( "alias", "sphere" );
 			}
 		}

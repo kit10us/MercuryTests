@@ -7,8 +7,6 @@
 #include <me/factory/VertexShaderFactory.h>
 #include <me/object/component/BBoxRendererComponent.h>
 #include <me/object/component/CameraComponent.h>
-#include <sg/ShapeCreators.h>
-#include <sg/ShapeFactory.h>
 
 using namespace me;
 using namespace render;
@@ -49,12 +47,18 @@ void MainScene::OnStart()
 	camera->GetFrame().SetPosition( unify::V3< float >( 0, 5, -10 ) );
 	camera->GetFrame().LookAt( unify::V3< float >( 0, 0, 0 ) );
 
+	auto shapeCreator = GetManager< Geometry >()->GetFactory( "me_shape" );
+
 	// From dynamically generated geometry (shape creator)...
-	sg::CubeParameters cubeParameters;
-	cubeParameters.SetEffect( colorEffect );
-    cubeParameters.SetSize( unify::Size3< float >( 1, 1, 1 ) );
-	cubeParameters.SetDiffuseFaces( unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta() );
-	Geometry::ptr meshProg( sg::CreateShape( GetOS()->GetRenderer(0), cubeParameters ) );
+	unify::Parameters parameters { 
+		{ "type", "box" },
+		{ "effect", colorEffect },
+		{ "size3", unify::Size3< float >( 1, 1, 1 ) },
+		{ "diffuses", std::vector< unify::Color > { 
+			unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta() } 
+		}
+	};
+	Geometry::ptr meshProg( shapeCreator->Produce( parameters ) );
 	PrimitiveList & plProg = ((Mesh*)meshProg.get())->GetPrimitiveList();
 	auto progObject = GetObjectAllocator()->NewObject( "cubeDyna" );
 	auto gc = AddGeometryComponent( progObject, meshProg );

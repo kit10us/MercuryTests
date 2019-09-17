@@ -3,7 +3,6 @@
 
 #include <MainScene.h>
 #include <me/render/Mesh.h>
-#include <sg/ShapeCreators.h>
 #include <me/factory/PixelShaderFactories.h>
 #include <me/factory/VertexShaderFactory.h>
 #include <me/scene/component/AutoBBoxSceneComponent.h>
@@ -23,37 +22,54 @@ MainScene::MainScene( me::game::Game * gameInstance )
 
 void MainScene::OnStart()
 {
-	Effect::ptr color3DEffect = GetManager< Effect >()->Add( "ColorInstanced_ambient", unify::Path( "ColorInstanced_ambient.effect" ) );
+	Effect::ptr color3DEffect = GetManager< Effect >()->Add("ColorInstancedAmbient", unify::Path("ColorAmbientInstanced.me_effect"));
 
-	AddComponent( scene::component::SceneComponent::ptr( new scene::component::AutoBBoxSceneComponent( GetOS(), color3DEffect ) ) );
+	AddComponent(scene::component::SceneComponent::ptr(new scene::component::AutoBBoxSceneComponent(GetOS(), color3DEffect)));
 
 	// Add a camera...
-	Object * camera = GetObjectAllocator()->NewObject( "camera" );
-	camera->AddComponent( object::component::IObjectComponent::ptr( new object::component::CameraComponent() ) );
-	auto * cameraComponent = unify::polymorphic_downcast< object::component::CameraComponent * >( camera->GetComponent( "camera" ).get() );
-	cameraComponent->SetProjection( unify::MatrixPerspectiveFovLH( 3.141592653589f / 4.0f, GetOS()->GetRenderer(0)->GetDisplay().GetSize().AspectRatioWH(), 1.0f, 1000.0f ) );
+	Object * camera = GetObjectAllocator()->NewObject("camera");
+	camera->AddComponent(object::component::IObjectComponent::ptr(new object::component::CameraComponent()));
+	auto * cameraComponent = unify::polymorphic_downcast< object::component::CameraComponent * >(camera->GetComponent("camera").get());
+	cameraComponent->SetProjection(unify::MatrixPerspectiveFovLH(3.141592653589f / 4.0f, GetOS()->GetRenderer(0)->GetDisplay().GetSize().AspectRatioWH(), 1.0f, 1000.0f));
+
+	auto shapeCreator = GetManager< Geometry >()->GetFactory("me_shape");
 
 	// Geo1
-	sg::CubeParameters cubeParameters;
-	cubeParameters.SetEffect( color3DEffect );
-    cubeParameters.SetSize( unify::Size3< float >( 1, 1, 1 ) );
-	cubeParameters.SetDiffuse( unify::ColorBlue() );
-	Geometry::ptr geo1( sg::CreateShape( GetOS()->GetRenderer(0), cubeParameters ) );
+	Geometry::ptr geo1;
+	{
+		unify::Parameters parameters{
+			{ "type", (std::string)"box" },
+			{ "effect", color3DEffect },
+			{ "size3", unify::Size3< float >(1, 1, 1) },
+			{ "diffuse", unify::ColorBlue() }
+		};
+		geo1 = shapeCreator->Produce(parameters);
+	}
 
 	// Geo2
-	sg::SphereParameters sphereParameters;
-	sphereParameters.SetEffect( color3DEffect );
-	sphereParameters.SetRadius( 1 );
-	sphereParameters.SetDiffuse( unify::ColorRed() );
-	Geometry::ptr geo2( sg::CreateShape( GetOS()->GetRenderer( 0 ), sphereParameters ) );
+	Geometry::ptr geo2;
+	{
+		unify::Parameters parameters{
+			{ "type", (std::string)"sphere" },
+			{ "effect", color3DEffect },
+			{ "radius", 1.0f },
+			{ "diffuse", unify::ColorRed() }
+		};
+		geo2 = shapeCreator->Produce(parameters);
+	}
 
 	// Geo3
-	sg::ConeParameters coneParameters;
-	coneParameters.SetEffect( color3DEffect );
-	coneParameters.SetHeight( 1 );
-	coneParameters.SetRadius( 1 );
-	coneParameters.SetDiffuse( unify::ColorGreen() );
-	Geometry::ptr geo3( sg::CreateShape( GetOS()->GetRenderer( 0 ), coneParameters ) );
+	Geometry::ptr geo3;
+	{
+		unify::Parameters parameters{
+			{ "type", (std::string)"cone" },
+			{ "effect", color3DEffect },
+			{ "radius", 1.0f },
+			{ "height", 1.0f },
+			{ "diffuse", unify::ColorGreen() }
+		};
+		geo3 = shapeCreator->Produce(parameters);
+	}
 
 	size_t depth = 10;
 	size_t columns = 10;
@@ -87,7 +103,7 @@ void MainScene::OnStart()
 	canvas::CanvasComponent::ptr canvas( new canvas::CanvasComponent( GetGame() ) );
 	AddComponent( canvas );
 
-	Effect::ptr font2 = GetManager< Effect>()->Add( "font2", unify::Path( "font2.effect" ) );
+	Effect::ptr font2 = GetManager< Effect>()->Add( "font2", unify::Path( "font2.me_effect" ) );
 	canvas->GetLayer()->AddElement( canvas::IElement::ptr( new canvas::FPS( GetGame(), font2 ) ) );
 }
 

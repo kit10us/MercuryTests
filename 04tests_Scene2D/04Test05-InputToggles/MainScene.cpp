@@ -22,7 +22,7 @@ void MainScene::OnStart()
 	m_set.reset( 
 		new BufferSet( 
 			GetOS()->GetRenderer( 0 ), 
-			GetManager< Effect>()->Add( "texture3d", unify::Path( "EffectTexture.effect" ) )
+			GetManager< Effect>()->Add( "texture3d", unify::Path( "EffectTexture.me_effect" ) )
 			) );
 
 	float xscalar = 10.0f;
@@ -92,7 +92,7 @@ void MainScene::OnStart()
 	canvas::CanvasComponent::ptr canvas( new canvas::CanvasComponent( GetGame() ) );
 	AddComponent( canvas );
 
-	Effect::ptr font2 = GetManager< Effect>()->Add( "font2", unify::Path( "font2.effect" ) );
+	Effect::ptr font2 = GetManager< Effect>()->Add( "font2", unify::Path( "font2.me_effect" ) );
 	canvas->GetLayer()->AddElement( canvas::IElement::ptr( new canvas::FPS( GetGame(), font2, canvas::Anchor::BottomLeft ) ) );
 }
 

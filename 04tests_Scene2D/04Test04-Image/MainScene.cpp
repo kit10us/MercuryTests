@@ -103,7 +103,7 @@ void MainScene::OnStart()
 	
 	/*
 	{ // Add an image that uses a sprite...
-		Effect::ptr heart = GetManager< Effect >()->Add( unify::Path( "textured2D.effect" ) );
+		Effect::ptr heart = GetManager< Effect >()->Add( unify::Path( "textured2D.me_effect" ) );
 		canvas::Layer::ptr layerHeart( new canvas::Layer( GetGame() ) );
 		canvas->GetLayer()->AddElement( layerHeart, "layerHeart" );
 		layerHeart->AddElement(

@@ -11,12 +11,13 @@ class MyGame : public game::Game
 {
 public:
 	MyGame()
+		: Game(unify::Path("setup/setup.me_setup"))
 	{
 	}
 
-	void AddScenes( scene::SceneManager * sceneManager ) override
+	void AddScenes(scene::SceneManager * sceneManager) override
 	{
-		sceneManager->AddScene( me::scene::IScene::ptr( new MainScene( this ) ) );
+		sceneManager->AddScene(me::scene::IScene::ptr(new MainScene(this)));
 	}
 } myGame;
 

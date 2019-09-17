@@ -35,13 +35,13 @@ void MainScene::OnStart()
 	Effect::ptr landEffect = GetAsset< Effect >( "TextureSimple" )->Duplicate();
 	{
 		TextureParameters parameters;
-		parameters.source = unify::Path( "4.bmp" );
+		parameters.source = this->GetOS()->GetAssetPaths()->FindAsset( unify::Path( "4.bmp" ) );
 		parameters.lockAccess = { unify::DataLockAccess::Readonly, unify::DataLockAccess::None };
 		parameters.min = Filtering::Point;
 		parameters.mag = Filtering::Point;
 		parameters.mip = Filtering::Point;
 		parameters.usage = BufferUsage::Default;
-		auto lockable = GetManager< ITexture >()->Add( "Lockable4", unify::Path( "4.bmp" ), unify::Path(), &parameters );
+		auto lockable = GetOS()->GetRenderer( 0 )->ProduceT( parameters );
 		auto t = lockable->GetParameters()->lockAccess;
 		landEffect->SetTexture( 0, lockable );
 	}

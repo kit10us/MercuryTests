@@ -24,7 +24,7 @@ void MainScene::OnStart()
 	auto colorInstancedAmbientEffect = GetAsset< Effect >( "ColorAmbientInstanced" );
 
 	// Load effect...
-	auto colorAnimInstancedEfect = GetManager< Effect>()->Add( "ColorAnimInstanced", unify::Path( "ColorAnimInstanced.effect" ) );
+	auto colorAnimInstancedEfect = GetManager< Effect>()->Add( "ColorAnimInstanced", unify::Path( "ColorAnimInstanced.me_effect" ) );
 
 	// Create mesh...
 	mesh.reset( new Mesh( GetOS()->GetRenderer( 0 ) ) );

@@ -1,8 +1,0 @@
-<?xml profile="1.0" encoding="iso-8859-1"?>
-<xml>
-  <effect>
-    <pixelshader name="TextureTransparency2D" source="TextureTransparency2D.xml"/>
-    <vertexshader name="TextureTransparency2D" source="TextureTransparency2D.xml"/>
-    <texture name="font2" stage="0" source="font2.png"/>
-  </effect>
-</xml>

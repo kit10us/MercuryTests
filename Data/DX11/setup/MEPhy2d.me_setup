@@ -1,6 +1,6 @@
 <xml>
 
-<include>Setup.xml</include>
+<include>setup/setup.me_setup</include>
 
 <extension source="?EXTENSIONS?/MEPhy2D.dll"/>
 

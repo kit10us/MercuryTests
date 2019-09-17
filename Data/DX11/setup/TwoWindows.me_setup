@@ -1,0 +1,14 @@
+<xml>
+
+<include>setup/setup.me_setup</include>
+
+<extension source="?EXTENSIONS?/MELua.dll">
+	<startup>TwoWins.lua</startup>
+</extension>
+
+<include>setup/ext_MeEditor.me_setup</include>
+<include>setup/Controls.me_setup</include>
+
+<StartScene/>
+
+</xml>

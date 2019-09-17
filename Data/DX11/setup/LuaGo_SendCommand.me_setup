@@ -1,5 +1,5 @@
 <xml>
-  <include>Setup.xml</include>
+  <include>setup/setup.me_setup</include>
   <logfile>lua_sendcommand_log.txt</logfile>
   
   <extension source="?EXTENSIONS?/MELua.dll">
@@ -7,8 +7,8 @@
   </extension>
   <extension source="?EXTENSIONS?/MEKeyboard.dll"/>
   
-  <include>EXT_MEEditor.xml</include>
-  <include>Controls.xml</include>
+  <include>setup/EXT_MEEditor.me_setup</include>
+  <include>setup/Controls.me_setup</include>
 
   <StartScene/>
 </xml>

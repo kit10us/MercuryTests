@@ -7,7 +7,6 @@
 #include <me/scene/SceneManager.h>
 #include <me/object/Object.h>
 #include <me/render/Mesh.h>
-#include <sg/ShapeCreators.h>
 #include <me/factory/PixelShaderFactories.h>
 #include <me/factory/VertexShaderFactory.h>
 #include <me/object/component/BBoxRendererComponent.h>
@@ -36,7 +35,7 @@ void MainScene::OnStart()
 	auto colorInstancedAmbientEffect = GetAsset< Effect >( "ColorAmbientInstanced" );
 
 	// Load effect...
-	auto colorAnimInstancedEfect = GetManager< Effect>()->Add( "ColorAnimInstanced", unify::Path( "ColorAnimInstanced.effect" ) );
+	auto colorAnimInstancedEfect = GetManager< Effect>()->Add( "ColorAnimInstanced", unify::Path( "ColorAnimInstanced.me_effect" ) );
 
 	// Add a camera...
 	Object * camera = GetObjectAllocator()->NewObject( "camera" );

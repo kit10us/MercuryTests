@@ -10,7 +10,6 @@
 #include <me/scene/SceneManager.h>
 #include <me/canvas/CanvasComponent.h>
 #include <me/canvas/FPS.h>
-#include <sg/ShapeCreators.h>
 
 using namespace me;
 using namespace render;
@@ -40,27 +39,45 @@ void MainScene::OnStart()
 	auto * cameraComponent = unify::polymorphic_downcast< object::component::CameraComponent * >( camera->GetComponent( "camera" ).get() );
 	cameraComponent->SetProjection( unify::MatrixPerspectiveFovLH( 3.141592653589f / 4.0f, GetOS()->GetRenderer(0)->GetDisplay().GetSize().AspectRatioWH(), 1.0f, 1000.0f ) );
 
+	auto shapeCreator = GetManager< Geometry >()->GetFactory("me_shape");
+
 	// Geo1
-	sg::CubeParameters cubeParameters;
-	cubeParameters.SetEffect( colorInstancedAmbientEffect );
-    cubeParameters.SetSize( unify::Size3< float >( 1, 1, 1 ) );
-	cubeParameters.SetDiffuse( unify::ColorBlue() );
-	Geometry::ptr geo1( sg::CreateShape( GetOS()->GetRenderer(0), cubeParameters ) );
+	Geometry::ptr geo1;
+	{
+		unify::Parameters parameters{
+			{ "type", (std::string)"box" },
+			{ "effect", colorInstancedAmbientEffect },
+			{ "size3", unify::Size3< float >(1, 1, 1) },
+			{ "diffuse", unify::ColorBlue() }
+		};
+		geo1 = shapeCreator->Produce(parameters);
+	}
 
 	// Geo2
-	sg::SphereParameters sphereParameters;
-	sphereParameters.SetEffect( colorInstancedAmbientEffect );
-	sphereParameters.SetRadius( 1 );
-	sphereParameters.SetDiffuse( unify::ColorRed() );
-	Geometry::ptr geo2( sg::CreateShape( GetOS()->GetRenderer( 0 ), sphereParameters ) );
+	Geometry::ptr geo2;
+	{
+		unify::Parameters parameters{
+			{ "type", (std::string)"cone" },
+			{ "effect", colorInstancedAmbientEffect },
+			{ "height", 1.0f },
+			{ "radius", 1.0f },
+			{ "diffuse", unify::ColorRed() }
+		};
+		geo2 = shapeCreator->Produce(parameters);
+	}
 
 	// Geo3
-	sg::ConeParameters coneParameters;
-	coneParameters.SetEffect( colorInstancedAmbientEffect );
-	coneParameters.SetHeight( 1 );
-	coneParameters.SetRadius( 1 );
-	coneParameters.SetDiffuse( unify::ColorGreen() );
-	Geometry::ptr geo3( sg::CreateShape( GetOS()->GetRenderer( 0 ), coneParameters ) );
+	Geometry::ptr geo3;
+	{
+		unify::Parameters parameters{
+			{ "type", (std::string)"cone" },
+			{ "effect", colorInstancedAmbientEffect },
+			{ "radius", 1.0f },
+			{ "height", 1.0f },
+			{ "diffuse", unify::ColorGreen() }
+		};
+		geo3 = shapeCreator->Produce(parameters);
+	}
 
 	size_t depth = 3;
 	size_t columns = 3;
@@ -95,7 +112,7 @@ void MainScene::OnStart()
 	canvas::CanvasComponent::ptr canvas( new canvas::CanvasComponent( GetGame() ) );
 	AddComponent( canvas );
 
-	Effect::ptr font2 = GetManager< Effect>()->Add( "font2", unify::Path( "font2.effect" ) );
+	Effect::ptr font2 = GetManager< Effect>()->Add( "font2", unify::Path( "font2.me_effect" ) );
 	canvas->GetLayer()->AddElement( canvas::IElement::ptr( new canvas::FPS( GetGame(), font2 ) ) );
 }
 

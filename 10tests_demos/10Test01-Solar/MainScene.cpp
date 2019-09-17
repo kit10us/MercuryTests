@@ -7,8 +7,6 @@
 #include <me/factory/VertexShaderFactory.h>
 #include <me/object/component/BBoxRendererComponent.h>
 #include <me/object/component/CameraComponent.h>
-#include <sg/ShapeCreators.h>
-
 #include <me/render/Billboard.h>
 
 using namespace me;
@@ -53,8 +51,16 @@ void MainScene::OnStart()
 	cameraComponent->SetProjection( MatrixPerspectiveFovLH( 3.141592653589f / 4.0f, 800 / 600, 1, 1000 ) );
 	camera->AddComponent( object::component::IObjectComponent::ptr( cameraComponent ) );
 
-	auto createObject = [&]( sg::ShapeBaseParameters parameters ) //->me::object::Object*
+	auto createObject = [&]( Effect::ptr effect, float radius )
 	{
+		auto shapeCreator = GetManager< Geometry >()->GetFactory("me_shape");
+
+		unify::Parameters parameters = {
+			{ "type", "sphere" },
+			{ "effect", effect },
+			{ "radius", radius }
+		};
+
 		const unify::V3< float > startPos{ V3< float >::V3Zero() };
 		
 		static int objectIndex = 0;
@@ -63,7 +69,7 @@ void MainScene::OnStart()
 		
 		object->GetFrame().SetPosition(startPos);
 
-		Geometry::ptr meshProg(sg::CreateShape(GetOS()->GetRenderer(0), parameters));
+		Geometry::ptr meshProg(shapeCreator->Produce(parameters));
 		PrimitiveList & plProg = ((Mesh*)meshProg.get())->GetPrimitiveList();
 		AddGeometryComponent(object, meshProg);
 		
@@ -73,10 +79,7 @@ void MainScene::OnStart()
 	// Create solar bodies...
 
 	{
-		sg::SphereParameters parameters;
-		parameters.SetEffect( AddPlanetEffect( "00sun", "solar\\00sun.jpg" ) );
-		parameters.SetRadius( 1.0f );
-		auto object = createObject(parameters);
+		auto object = createObject(AddPlanetEffect("00sun", "solar\\00sun.jpg"), 1.0f);
 
 		m_rootSolarBody.reset( 
 			new SolarBody( "Sun", object, 
@@ -92,10 +95,7 @@ void MainScene::OnStart()
 	}
 
 	{
-		sg::SphereParameters parameters;
-		parameters.SetEffect( AddPlanetEffect( "01Mercury", "solar\\01Mercury.bmp" ) );
-		parameters.SetRadius(0.5f);
-		auto object = createObject(parameters);
+		auto object = createObject(AddPlanetEffect("01Mercury", "solar\\01Mercury.bmp"), 0.5f);
 
 		m_rootSolarBody->AddChild( 
 			SolarBody::ptr( 
@@ -113,10 +113,7 @@ void MainScene::OnStart()
 	}
 
 	{
-		sg::SphereParameters parameters;
-		parameters.SetEffect( AddPlanetEffect( "02Venus", "solar\\02Venus.bmp" ) );
-		parameters.SetRadius( 0.5f );
-		auto object = createObject( parameters );
+		auto object = createObject(AddPlanetEffect("02Venus", "solar\\02Venus.bmp"), 0.5f);
 
 		m_rootSolarBody->AddChild(
 			SolarBody::ptr(
@@ -134,10 +131,7 @@ void MainScene::OnStart()
 	}
 
 	{
-		sg::SphereParameters parameters;
-		parameters.SetEffect( AddPlanetEffect( "03Earth", "solar\\03Earth.bmp" ) );
-		parameters.SetRadius( 0.5f );
-		auto object = createObject( parameters );
+		auto object = createObject(AddPlanetEffect("03Earth", "solar\\03Earth.bmp"), 0.5f);
 
 		SolarBody::ptr earth(
 				new SolarBody( "Earth", object,
@@ -153,10 +147,7 @@ void MainScene::OnStart()
 		m_rootSolarBody->AddChild( earth );
 		/*
 		{
-			sg::SphereParameters parameters;
-			parameters.SetEffect( AddPlanetEffect( "03.01Moon", "solar\\03.01Moon.jpg" ) );
-			parameters.SetRadius( 0.25f );
-			auto object = createObject( parameters );
+			auto object = createObject( AddPlanetEffect( "03.01Moon", "solar\\03.01Moon.jpg" ), 0.25f );
 
 			earth->AddChild(
 				SolarBody::ptr(

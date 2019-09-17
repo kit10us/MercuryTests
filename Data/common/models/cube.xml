@@ -3,7 +3,7 @@
   <geometry version="1.2">
   <!-- Note: Index in vertex definition is arbitrary, and if included (which is suggested) is used as checking AND should start 0-->
     <effectlist>
-      <effect name="cube" source="TextureAmbient.effect"/>
+      <effect name="cube" source="TextureAmbient.me_effect"/>
     </effectlist>
   
     <bufferset>

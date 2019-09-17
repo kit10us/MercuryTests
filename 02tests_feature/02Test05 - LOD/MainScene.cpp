@@ -7,7 +7,6 @@
 #include <me/factory/VertexShaderFactory.h>
 #include <me/object/component/BBoxRendererComponent.h>
 #include <me/object/component/CameraComponent.h>
-#include <sg/ShapeCreators.h>
 #include <me/render/LOD.h>
 
 using namespace me;
@@ -34,6 +33,8 @@ void MainScene::OnStart()
 	camera->GetFrame().SetPosition( unify::V3< float >( 0, 5, -17 ) );
 	camera->GetFrame().LookAt( unify::V3< float >( 0, 0, 0 ) );
 
+	auto shapeCreator = GetManager< Geometry >()->GetFactory("me_shape");
+
 	// LOD...
 	//QLOD 
 
@@ -42,14 +43,18 @@ void MainScene::OnStart()
 	// Middle...
 
 	// Furthest...
-	sg::CubeParameters cubeParameters;
-	cubeParameters.SetEffect( colorSimple );
-    cubeParameters.SetSize( unify::Size3< float >( 2, 2, 2 ) );
-	cubeParameters.SetDiffuseFaces( unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta() );
-	Geometry::ptr meshProg( sg::CreateShape( GetOS()->GetRenderer(0), cubeParameters ) );
-	PrimitiveList & plProg = ((Mesh*)meshProg.get())->GetPrimitiveList();
-	auto progObject = GetObjectAllocator()->NewObject( "cubeDyna" );
-	AddGeometryComponent( progObject, meshProg );
+	unify::Parameters parameters { 
+		{ "type", "box" },
+		{ "effect", colorSimple },
+		{ "size3", unify::Size3< float >( 2, 2, 2 ) },
+		{ "diffuses", std::vector< unify::Color >{ 
+			unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta()
+		}
+		}
+	};
+
+	auto progObject = GetObjectAllocator()->NewObject( "boxDyna" );
+	AddGeometryComponent( progObject, shapeCreator->Produce( parameters ) );
 	progObject->GetFrame().SetPosition( unify::V3< float >( 0 - 0.0f, 0, 0 ) );
 	progObject->AddComponent( component::IObjectComponent::ptr( new object::component::BBoxRendererComponent( GetOS(), colorSimple ) ) );
 }

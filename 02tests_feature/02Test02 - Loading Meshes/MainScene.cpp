@@ -7,7 +7,6 @@
 #include <me/scene/SceneManager.h>
 #include <me/object/Object.h>
 #include <me/render/Mesh.h>
-#include <sg/ShapeCreators.h>
 #include <me/factory/PixelShaderFactories.h>
 #include <me/factory/VertexShaderFactory.h>
 #include <me/object/component/BBoxRendererComponent.h>
@@ -42,13 +41,21 @@ void MainScene::OnStart()
 	camera->GetFrame().SetPosition( { 0, 5, -17 } );
 	camera->GetFrame().LookAt( { 0, 0, 0 } );
 
+	auto shapeCreator = GetManager< Geometry >()->GetFactory( "me_shape" );
+
 	// From dynamically generated geometry (shape creator)...
 	{
-		sg::CubeParameters cubeParameters;
-		cubeParameters.SetEffect( colorEffect );
-		cubeParameters.SetSize( Size3< float >( 2, 2, 2 ) );
-		cubeParameters.SetDiffuseFaces( ColorRed(), ColorGreen(), ColorBlue(), ColorYellow(), ColorCyan(), ColorMagenta() );
-		Geometry::ptr meshProg( sg::CreateShape( GetOS()->GetRenderer(0), cubeParameters ) );
+		Parameters parameters {
+			{ "type", "box" },
+			{ "effect", colorEffect },
+			{ "size3", Size3< float >( 2, 2, 2 ) },
+			{ "diffuses", std::vector< Color >{ 
+				ColorRed(), ColorGreen(), ColorBlue(), ColorYellow(), ColorCyan(), ColorMagenta() 
+				}
+			}
+		};
+
+		Geometry::ptr meshProg( shapeCreator->Produce( parameters ) );
 		PrimitiveList & plProg = ((Mesh*)meshProg.get())->GetPrimitiveList();
 		auto object = GetObjectAllocator()->NewObject( "cubeDyna" );
 		AddGeometryComponent( object, meshProg );

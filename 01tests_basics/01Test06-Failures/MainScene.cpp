@@ -19,7 +19,7 @@ void MainScene::OnStart()
 	const float height = (float)GetOS()->GetRenderer( 0 )->GetDisplay().GetSize().height;
 
 	// Add a color effect.
-	m_effect = GetManager< Effect >()->Add( "color2d", unify::Path( "EffectColor2D.effect" ) );
+	m_effect = GetManager< Effect >()->Add( "color2d", unify::Path( "EffectColor2D.me_effect" ) );
 	m_vertexCB = m_effect->GetVertexShader()->CreateConstantBuffer( BufferUsage::Dynamic );
 	m_pixelCB = m_effect->GetPixelShader()->CreateConstantBuffer( BufferUsage::Dynamic );
 
@@ -69,7 +69,7 @@ void MainScene::OnStart()
 
 	// Add a test for an asset that doesn't exist, that we can resume from.
 	{ 
-		m_effect = GetManager< Effect >()->Add( "invalid", unify::Path( "Invalid.effect" ) );
+		m_effect = GetManager< Effect >()->Add( "invalid", unify::Path( "Invalid.me_effect" ) );
 	}
 }
 

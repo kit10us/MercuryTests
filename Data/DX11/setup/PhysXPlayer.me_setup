@@ -1,12 +1,12 @@
 <xml>
-  <include>Setup.xml</include>
+  <include>setup/setup.me_setup</include>
   
   <extension source="?EXTENSIONS?/MELua.dll">
   	<startup>game_physxPlayer.lua</startup>
   </extension>
   
-  <include>ext_Dae.xml</include>
-  <include>ext_Ase.xml</include>
+  <include>setup/ext_Dae.me_setup</include>
+  <include>setup/ext_Ase.me_setup</include>
   
   <extension source="?EXTENSIONS?/MEPhysx.dll"/>
   <extension source="?EXTENSIONS?/MELuaPhysXExt.dll"/>
@@ -14,6 +14,6 @@
   <extension source="?EXTENSIONS?/MEMouse.dll"/>
   <extension source="?EXTENSIONS?/MEGamepad.dll"/>
   
-  <include>ext_MEEditor.xml</include>
-  <include>Controls.xml</include>
+  <include>setup/ext_MEEditor.me_setup</include>
+  <include>setup/Controls.me_setup</include>
 </xml>

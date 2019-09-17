@@ -1,0 +1,24 @@
+<xml>
+<include>setup/setup.me_setup</include>
+
+<extension source="?EXTENSIONS?/MELua.dll">
+	<startup>game_inputs.lua</startup>
+</extension>
+
+<extension source="?EXTENSIONS?/DAELoader.dll">
+	<color name="color_ambient" source="Color_Ambient.me_effect"/>
+	<texture name="texture_ambient" source="Textured_Ambient.me_effect"/>
+</extension>
+
+<extension source="?EXTENSIONS?/ASELoader.dll">
+	<textureps name="texture_ambient" source="texture_ambient.me_shader"/>
+	<texturevs name="texture_ambient" source="texture_ambient.me_shader"/>
+</extension>
+
+<extension source="?EXTENSIONS?/DXIKeyboard.dll"/>
+<extension source="?EXTENSIONS?/DXIMouse.dll"/>
+<extension source="?EXTENSIONS?/DXIGamepad.dll"/>
+
+<include>setup/ext_MEEditor.me_setup</include>
+<include>setup/controls.me_setup</include>
+</xml>

@@ -25,7 +25,7 @@ void MainScene::OnStart()
 {
 	using namespace scene;
 
-	effect = GetManager< Effect>()->Add( "texture3d", unify::Path( "EffectTexture.effect" ) );
+	effect = GetManager< Effect>()->Add( "texture3d", unify::Path( "EffectTexture.me_effect" ) );
 
 	float xscalar = 10.0f;
 	float yscalar = 10.0f;
@@ -97,7 +97,7 @@ void MainScene::OnStart()
 
 	// Load a font enabled texture...
 	// That is a tecture with an internal description of how to treat is as a font.
-	Effect::ptr font2 = GetManager< Effect>()->Add( "font2", unify::Path( "font2.effect" ) );
+	Effect::ptr font2 = GetManager< Effect>()->Add( "font2", unify::Path( "font2.me_effect" ) );
 
 	// A layer is where we place all canvas elements (typically things we want drawn).
 	{ // Create a new layer, and add it to the canvas...
@@ -118,7 +118,7 @@ void MainScene::OnStart()
 
 	/*
 	{ // Add the heart layer...
-		Effect::ptr heart = GetManager< Effect >()->Add( "heart", unify::Path( "heart.effect" ) );
+		Effect::ptr heart = GetManager< Effect >()->Add( "heart", unify::Path( "heart.me_effect" ) );
 		canvas::Layer::ptr layerHeart( new canvas::Layer( GetGame() ) );
 		canvas->GetLayer()->AddElement( layerHeart, "layerHeart" );
 		layerHeart->AddElement( 
