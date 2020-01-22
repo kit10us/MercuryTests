@@ -7,8 +7,6 @@
 #include <me/factory/VertexShaderFactory.h>
 #include <me/object/component/BBoxRendererComponent.h>
 #include <me/object/component/CameraComponent.h>
-#include <sg/ShapeCreators.h>
-
 #include <me/render/Billboard.h>
 
 using namespace me;
@@ -23,6 +21,8 @@ MainScene::MainScene( me::game::Game * gameInstance )
 
 void MainScene::OnStart()
 {
+	using namespace unify;
+
 	AddResources( unify::Path( "resources/Standard.me_res" ) );
 	auto colorEffect = GetAsset< Effect >( "ColorSimple" );
 	auto textureEffect = GetAsset< Effect>( "TextureSimple" );
@@ -34,37 +34,40 @@ void MainScene::OnStart()
 
 	// Add an object to act as a camera...
 	Object * camera = GetObjectAllocator()->NewObject( "camera" );
-	camera->GetFrame().SetPosition( unify::V3< float >( 0, 5, -17 ) );
-	camera->GetFrame().LookAt( unify::V3< float >( 0, 0, 0 ) );
+	camera->GetFrame().SetPosition( V3< float >( 0, 5, -17 ) );
+	camera->GetFrame().LookAt( V3< float >( 0, 0, 0 ) );
 
 	// Add a camera component to the camera object
 	auto * cameraComponent = new object::component::CameraComponent();
-	cameraComponent->SetProjection( unify::MatrixPerspectiveFovLH( 3.141592653589f / 4.0f, 800 / 600, 1, 1000 ) );
+	cameraComponent->SetProjection( MatrixPerspectiveFovLH( 3.141592653589f / 4.0f, 800 / 600, 1, 1000 ) );
 	camera->AddComponent( object::component::IObjectComponent::ptr( cameraComponent ) );
 
-	auto createObject = [&]( sg::ShapeBaseParameters parameters, int depth )->me::object::Object*
+	// Create shapes...
+	auto shapeCreator = GetManager< Geometry >()->GetFactory( "me_shape" );
+
+	auto createObject = [&]( Parameters parameters, int depth )->me::object::Object*
 	{
-		const unify::V3< float > startPos{ -2.5f, 2.5f, -1.25f + ( 2.5f * depth )  };
+		const V3< float > startPos{ -2.5f, 2.5f, -1.25f + ( 2.5f * depth )  };
 		const int itemsPerRow = 4;
 		const int itemsPerColumn = 4;
 		const int itemsPerPage = itemsPerRow * itemsPerColumn;
-		const unify::V3< float > changePerRow { 0.0f, -2.5f, 0.0f };
-		const unify::V3< float > changePerColumn { 2.5f, 0.0f, 0.0f };
-		const unify::V3< float > changePerPage { 0.0f, 0.0f, 2.5f };
+		const V3< float > changePerRow { 0.0f, -2.5f, 0.0f };
+		const V3< float > changePerColumn { 2.5f, 0.0f, 0.0f };
+		const V3< float > changePerPage { 0.0f, 0.0f, 2.5f };
 
 		static int objectIndex[2] = {};
 		int page = objectIndex[ depth ] / itemsPerPage;
 		int row = (objectIndex[depth] % itemsPerPage) / itemsPerRow;
 		int column = (objectIndex[depth] % itemsPerPage) % itemsPerRow;
 			
-		std::string objectName = "object " + unify::Cast< std::string >( objectIndex[depth]++ );
+		std::string objectName = "object " + Cast< std::string >( objectIndex[depth]++ );
 		auto object = GetObjectAllocator()->NewObject( objectName );
 		
-		unify::V3< float > pos = startPos + unify::V3< float >{ 
+		unify::V3< float > pos = startPos + V3< float >{ 
 			(changePerRow * (float)row) + (changePerColumn * (float)column) + (changePerPage * (float)page ) };
 		object->GetFrame().SetPosition( pos );
 
-		Geometry::ptr meshProg(sg::CreateShape(GetOS()->GetRenderer(0), parameters));
+		Geometry::ptr meshProg( shapeCreator->Produce(parameters) );
 		PrimitiveList & plProg = ((Mesh*)meshProg.get())->GetPrimitiveList();
 		AddGeometryComponent(object, meshProg);
 		
@@ -74,101 +77,113 @@ void MainScene::OnStart()
 	// Create objects...
 	for( int depth = 0; depth < 2; depth++ )
 	{
-		sg::ShapeBaseParameters base;
+		Parameters base;
 		if ( depth == 0 )
 		{
-			base.SetEffect( colorEffect );
+			base.Set( { "effect", colorEffect } );
 		}
 		else
 		{
-			base.SetEffect( textureEffect );
+			base.Set( { "effect", textureEffect } );
 		}
 		{
-			sg::CubeParameters parameters{ base };
-			parameters.SetSize(unify::Size3< float >(1, 1, 1));
-			parameters.SetDiffuseFaces(unify::ColorRed(), unify::ColorGreen(), unify::ColorBlue(), unify::ColorYellow(), unify::ColorCyan(), unify::ColorMagenta());
+			Parameters parameters{ base };
+			parameters.Set( "type", "box" );
+			parameters.Set( "size3", Size3< float >( 1, 1, 1 ) );
+			parameters.Set( "diffuses", std::vector< Color >{
+				ColorRed(), ColorGreen(), ColorBlue(), ColorYellow(), ColorCyan(), ColorMagenta()
+			} );
 			auto object = createObject( parameters, depth );
 		}
 
 		{
-			sg::PointFieldParameters parameters{ base };
-			parameters.SetMajorRadius( 0.5f );
-			parameters.SetMinorRadius( 0.5f );
-			parameters.SetCount( 1000 );
-			parameters.SetDiffuse( unify::ColorRed() );
+			Parameters parameters{ base };
+			parameters.Set( "type", "pointfield" );
+			parameters.Set( "MajorRadius", 0.5f );
+			parameters.Set( "MinorRadius", 0.5f );
+			parameters.Set( "Count", 1000 );
+			parameters.Set( "Diffuse", ColorRed() );
 			auto object = createObject( parameters, depth );
 		}
 
 		{
-			sg::PointRingParameters parameters{ base };
-			parameters.SetMajorRadius( 0.5f );
-			parameters.SetMinorRadius(0.25f);
-			parameters.SetCount(1000);
-			parameters.SetDiffuse( unify::ColorGreen() );
+			Parameters parameters{ base };
+			parameters.Set( "type", "pointring" );
+			parameters.Set( "MajorRadius", 0.5f );
+			parameters.Set( "MinorRadius", 0.25f );
+			parameters.Set( "Count", 1000 );
+			parameters.Set( "Diffuse", ColorGreen() );
 			auto object = createObject( parameters, depth );
 		}
 
 		{
-			sg::DashRingParameters parameters{ base };
-			parameters.SetMajorRadius(1);
-			parameters.SetMinorRadius(0.9f);
-			parameters.SetSize( 0.5f );
-			parameters.SetCount(12);
-			parameters.SetDiffuse( unify::ColorBlue() );
+			Parameters parameters{ base };
+			parameters.Set( "type", "dashring" );
+			parameters.Set( "MajorRadius", 1.0f );
+			parameters.Set( "MinorRadius", 0.9f );
+			parameters.Set( "Size1", 0.5f );
+			parameters.Set( "Count", 12 );
+			parameters.Set( "Diffuse", ColorBlue() );
 			auto object = createObject( parameters, depth );
 		}
 
 		{
-			sg::PyramidParameters parameters{ base };
-			parameters.SetEffect( colorEffect );
-			parameters.SetSize( { 1, 1, 1 } );
-			parameters.SetDiffuse( unify::ColorRed( 255 / 2 ) );
+			Parameters parameters{ base };
+			parameters.Set( "type", "pyramid" );
+			parameters.Set( "Size3", Size3<float>{ 1, 1, 1 } );
+			parameters.Set( "Diffuse", ColorRed( 255 / 2 ) );
 			auto object = createObject( parameters, depth );
 		}
 
 		{
-			sg::CircleParameters parameters{ base };
-			parameters.SetRadius( 1.0f );
-			parameters.SetDiffuse( unify::ColorGreen( 255 / 2 ) );
+			Parameters parameters{ base };
+			parameters.Set( "type", "circle" );
+			parameters.Set( "Radius", 1.0f );
+			parameters.Set( "Diffuse", ColorGreen( 255 / 2 ) );
 			auto object = createObject( parameters, depth );
 		}
 
 		{
-			sg::SphereParameters parameters{ base };
-			parameters.SetRadius( 0.5f );
-			parameters.SetDiffuse( unify::ColorBlue( 255 / 2 ) );
+			Parameters parameters{ base };
+			parameters.Set( "type", "sphere" );
+			parameters.Set( "Radius", 0.5f );
+			parameters.Set( "Diffuse", ColorBlue( 255 / 2 ) );
 			auto object = createObject( parameters, depth );
 		}
 
 		{
-			sg::CylinderParameters parameters{ base };
-			parameters.SetRadius(0.25f);
-			parameters.SetHeight(1.0f);
-			parameters.SetDiffuse( unify::ColorCyan( 255 / 2 ) );
+			Parameters parameters{ base };
+			parameters.Set( "type", "cylinder" );
+			parameters.Set( "Radius", 0.25f );
+			parameters.Set( "Height", 1.0f );
+			parameters.Set( "Diffuse", ColorCyan( 255 / 2 ) );
 			auto object = createObject( parameters, depth );
 		}
 
 		{
-			sg::TubeParameters parameters{ base };
-			parameters.SetMajorRadius(0.5f);
-			parameters.SetMinorRadius(0.25f );
-			parameters.SetHeight(1.0f);
-			parameters.SetDiffuse( unify::ColorMagenta( 255 / 2 ) );
+			Parameters parameters{ base };
+			parameters.Set( "type", "tube" );
+			parameters.Set( "MajorRadius", 0.5f );
+			parameters.Set( "MinorRadius", 0.25f );
+			parameters.Set( "Height", 1.0f );
+			parameters.Set( "Diffuse", ColorMagenta( 255 / 2 ) );
 			auto object = createObject( parameters, depth );
 		}
 
 		{
-			sg::PlaneParameters parameters{ base };
-			parameters.SetSize( {1, 1} );
-			parameters.SetDiffuse( unify::ColorRed( 255 ) );
+			Parameters parameters{ base };
+			parameters.Set( "type", "plane" );
+			parameters.Set( "Size2", Size<float>{ 1, 1 } );
+			parameters.Set( "Diffuse", ColorRed( 255 ) );
 			auto object = createObject( parameters, depth );
 		}
 
 		{
-			sg::ConeParameters parameters{ base };
-			parameters.SetRadius( 0.25f );
-			parameters.SetHeight( 1 );
-			parameters.SetDiffuse( unify::ColorGreen( 255 ) );
+			Parameters parameters{ base };
+			parameters.Set( "type", "cone" );
+			parameters.Set( "Radius", 0.25f );
+			parameters.Set( "Height", 1.0f );
+			parameters.Set( "Diffuse", ColorGreen( 255 ) );
 			auto object = createObject( parameters, depth );
 		}
 	}

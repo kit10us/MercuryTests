@@ -1,2 +1,5 @@
 /intermediate
 /output
+*.db
+*.suo
+*.log
