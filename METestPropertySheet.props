@@ -9,7 +9,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>.;..\..\..\unify;..\..\..\qxml;..\..\..\qjson;..\..\..\ResourceManager;..\..\..\ws\MercuryEngine;..\..\..\MEWinMain;..\..\..\MEWindowsOS</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\..\unify;..\..\..\qxml;..\..\..\qjson;..\..\..\ResourceManager;..\..\..\MercuryEngine;..\..\..\MEWinMain;..\..\..\MEWindowsOS</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
