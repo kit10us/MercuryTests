@@ -14,6 +14,8 @@ MainScene::MainScene( me::game::Game * gameInstance )
 
 void MainScene::OnStart()
 {
+	auto block = m_block->SubBlock( "OnStart" );
+
 	AddResources( unify::Path( "resources/Standard.me_res" ) );
 	auto colorEffect = GetAsset< Effect >( "ColorSimple" );
 	auto textureEffect = GetAsset< Effect>( "TextureSimple" );
